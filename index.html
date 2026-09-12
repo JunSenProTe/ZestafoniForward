@@ -1,316 +1,4733 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A local initiative being developed to support hospitals and the healthcare community in Zestafoni, Georgia.">
-<title>Zestafoni Forward — Help Zestafoni Step Into the Future</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-:root{
-  --ink:#17352f;--muted:#61736e;--cream:#f7f8f3;--paper:#fff;
-  --green:#176b53;--green-dark:#104b3b;--mint:#dceee5;--gold:#e7b65d;
-  --line:#dfe8e2;--shadow:0 18px 50px rgba(20,61,48,.09);
-  --radius:22px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,"Noto Sans Georgian",Arial,sans-serif;line-height:1.6}
-body.ka{font-family:"Noto Sans Georgian",Inter,Arial,sans-serif}
-button,a{font:inherit}
-button,a{ -webkit-tap-highlight-color:transparent}
-a{color:inherit;text-decoration:none}
-button{cursor:pointer}
-button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
-.container{width:min(1160px,calc(100% - 40px));margin:auto}
-.topline{background:var(--green-dark);color:#eaf5ef;font-size:12px;letter-spacing:.04em}
-.topline .container{display:flex;justify-content:space-between;gap:16px;padding:9px 0;flex-wrap:wrap}
-header{position:sticky;top:0;z-index:20;background:rgba(247,248,243,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(223,232,226,.8)}
-.nav{min-height:78px;display:flex;align-items:center;gap:28px}
-.brand{display:flex;align-items:center;gap:11px;min-width:max-content}
-.logo{width:43px;height:43px;border-radius:14px;background:var(--green);display:grid;place-items:center;color:white;font-weight:800;font-size:20px;position:relative;overflow:hidden}
-.logo:after{content:"";position:absolute;width:34px;height:34px;border:1px solid rgba(255,255,255,.35);border-radius:50%}
-.brand strong{display:block;font-size:15px;letter-spacing:-.03em}
-.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
-.navlinks{display:flex;align-items:center;gap:20px;margin-left:auto}
-.navlinks a{font-size:13px;font-weight:600;color:#52665f;transition:color .2s}
-.navlinks a:hover,.navlinks a.active{color:var(--green)}
-.nav-actions{display:flex;align-items:center;gap:8px}
-.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:white}
-.lang button{border:0;background:transparent;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;color:var(--muted)}
-.lang button.active{background:var(--green);color:white}
-.btn{border:0;border-radius:999px;padding:13px 19px;font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:transform .2s,background .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--green);color:white;box-shadow:0 8px 20px rgba(23,107,83,.18)}
-.btn-primary:hover{background:var(--green-dark)}
-.btn-outline{background:white;color:var(--green);border:1px solid var(--line)}
-.btn-soft{background:var(--mint);color:var(--green-dark)}
-.menu-toggle{display:none;border:1px solid var(--line);background:white;border-radius:12px;padding:9px 11px;color:var(--green)}
-.hero{padding:74px 0 62px;overflow:hidden;position:relative}
-.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:65px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.dot{width:7px;height:7px;background:var(--gold);border-radius:50%}
-h1{font-size:clamp(42px,5.1vw,72px);line-height:1.05;letter-spacing:-.065em;margin:19px 0 24px;font-weight:800}
-.hero p{font-size:17px;line-height:1.8;color:var(--muted);max-width:540px;margin:0 0 30px}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
-.hero-note{display:flex;gap:12px;align-items:flex-start;margin-top:28px;color:var(--muted);font-size:12px;max-width:470px}
-.hero-note strong{color:var(--ink)}
-.visual{position:relative;min-height:455px}
-.visual-main{position:absolute;inset:18px 0 0 35px;background:var(--green);border-radius:34px;overflow:hidden;box-shadow:var(--shadow)}
-.visual-main:before{content:"";position:absolute;width:300px;height:300px;border:1px solid rgba(255,255,255,.17);border-radius:50%;right:-100px;top:-100px}
-.visual-main:after{content:"";position:absolute;width:430px;height:430px;border:1px solid rgba(255,255,255,.1);border-radius:50%;left:-260px;bottom:-260px}
-.visual-copy{position:absolute;left:35px;right:35px;top:35px;color:white;z-index:1}
-.visual-copy small{color:#b8d8ca;text-transform:uppercase;font-size:10px;letter-spacing:.14em;font-weight:800}
-.visual-copy h2{font-size:34px;line-height:1.15;letter-spacing:-.05em;margin:13px 0 0;max-width:280px}
-.hill{position:absolute;bottom:-5px;left:-10%;width:120%;height:58%;background:#2c8469;border-radius:50% 50% 0 0/38% 38% 0 0;transform:rotate(-7deg)}
-.hill.two{background:#4b9b7c;height:39%;bottom:-70px;transform:rotate(10deg)}
-.cross{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-25%);width:112px;height:112px;border-radius:50%;background:#f4f7ef;display:grid;place-items:center;box-shadow:0 15px 30px rgba(0,0,0,.12)}
-.cross:before,.cross:after{content:"";position:absolute;background:var(--green);border-radius:5px}
-.cross:before{width:52px;height:17px}.cross:after{width:17px;height:52px}
-.floating-card{position:absolute;z-index:4;background:white;border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:var(--shadow)}
-.floating-card.top{top:0;right:-12px;display:flex;gap:11px;align-items:center}
-.floating-card.bottom{bottom:0;left:0;display:flex;gap:12px;align-items:center}
-.icon-circle{width:38px;height:38px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--green);font-weight:800}
-.floating-card strong{display:block;font-size:13px}.floating-card small{display:block;color:var(--muted);font-size:11px}
-.section{padding:92px 0}
-.section.alt{background:white}
-.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:38px}
-.section-head h2{font-size:clamp(29px,3.5vw,44px);line-height:1.12;letter-spacing:-.05em;margin:12px 0 0}
-.section-head p{max-width:390px;color:var(--muted);font-size:14px;margin:0}
-.status-banner{background:#fff9ed;border:1px solid #f0dfb9;border-radius:20px;padding:25px 28px;display:flex;align-items:center;gap:18px;margin-top:30px}
-.status-symbol{width:44px;height:44px;border-radius:14px;background:#f7e5bd;color:#8b641c;display:grid;place-items:center;font-weight:800;flex:none}
-.status-banner h3{font-size:16px;margin:0 0 3px}.status-banner p{margin:0;color:#7d7058;font-size:13px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 5px 20px rgba(20,61,48,.025)}
-.card-icon{width:48px;height:48px;border-radius:15px;background:var(--mint);display:grid;place-items:center;color:var(--green);font-size:20px;font-weight:800;margin-bottom:24px}
-.card h3{font-size:19px;letter-spacing:-.03em;margin:0 0 10px}.card p{font-size:14px;color:var(--muted);margin:0}
-.quote{font-size:clamp(25px,3vw,39px);line-height:1.25;letter-spacing:-.045em;font-weight:700;max-width:700px;margin:0}
-.quote em{color:var(--green);font-style:normal}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.step{position:relative;padding:24px 18px;background:white;border:1px solid var(--line);border-radius:18px}
-.step-num{font-size:12px;color:var(--green);font-weight:800;letter-spacing:.1em}
-.step h3{font-size:15px;line-height:1.35;margin:25px 0 8px}.step p{font-size:12px;color:var(--muted);margin:0}
-.step:after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);z-index:2;background:var(--cream);width:25px;height:25px;border-radius:50%;display:grid;place-items:center;color:var(--green);font-size:12px}
-.step:last-child:after{display:none}
-.campaign{overflow:hidden;padding:0}.campaign-top{height:170px;background:var(--mint);position:relative;padding:22px}
-.campaign-top:before{content:"";position:absolute;inset:25px 25px auto auto;width:100px;height:100px;border:1px solid rgba(23,107,83,.18);border-radius:50%}
-.campaign-art{position:absolute;bottom:0;right:30px;font-size:68px;color:var(--green);font-weight:800;opacity:.75}
-.campaign-body{padding:24px}.badge{display:inline-flex;border-radius:999px;padding:5px 9px;font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
-.badge-progress{background:#f7e8c8;color:#89651e}.badge-available{background:var(--mint);color:var(--green)}.badge-completed{background:#e1e8f7;color:#37548a}
-.campaign h3{font-size:19px;margin:15px 0 8px;letter-spacing:-.03em}.campaign p{font-size:13px;color:var(--muted);margin:0 0 20px}
-.campaign .btn{width:100%}
-.transparency{background:var(--green);color:white;position:relative;overflow:hidden}
-.transparency:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-280px;top:-180px}
-.transparency .eyebrow{color:#c5e5d5}.transparency .dot{background:var(--gold)}
-.transparency h2{font-size:clamp(31px,4vw,51px);line-height:1.1;letter-spacing:-.055em;max-width:610px;margin:15px 0 18px}
-.transparency p{color:#c7ded4;max-width:590px;font-size:15px}
-.transparency-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
-.promise-list{display:grid;gap:12px}.promise{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);border-radius:15px;padding:15px 17px;font-size:13px}.check{width:25px;height:25px;border-radius:50%;background:#a8d4bf;color:var(--green-dark);display:grid;place-items:center;font-weight:800;flex:none}
-.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
-.faq-list{display:grid;gap:10px}
-details{background:white;border:1px solid var(--line);border-radius:15px;padding:0 20px}
-summary{list-style:none;cursor:pointer;padding:20px 0;font-weight:700;font-size:14px;display:flex;justify-content:space-between;gap:20px}
-summary::-webkit-details-marker{display:none}
-summary:after{content:"+";color:var(--green);font-size:20px;font-weight:400}
-details[open] summary:after{content:"−"}
-details p{font-size:13px;color:var(--muted);margin:0 0 20px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.contact-card{background:var(--green-dark);color:white;border-radius:24px;padding:35px}
-.contact-card h2{font-size:32px;line-height:1.15;letter-spacing:-.05em;margin:14px 0}
-.contact-card p{color:#bed8cd;font-size:14px}
-.contact-detail{display:flex;gap:12px;align-items:center;padding:15px 0;border-top:1px solid rgba(255,255,255,.15);font-size:13px;color:#e6f2ec}
-.contact-detail span{color:#9ec8b6}
-.form-card{background:white;border:1px solid var(--line);border-radius:24px;padding:35px}
-.form-card h3{font-size:23px;margin:0 0 8px;letter-spacing:-.04em}.form-card p{font-size:13px;color:var(--muted);margin:0 0 24px}
-label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}input,textarea{width:100%;border:1px solid var(--line);background:#fbfcfa;border-radius:12px;padding:13px;font:inherit;font-size:13px;margin-bottom:16px;color:var(--ink)}textarea{min-height:105px;resize:vertical}
-footer{background:#102f27;color:#d9e9e1;padding:50px 0 25px}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:45px}
-footer .brand strong{color:white}footer .brand small{color:#9ebbb0}
-footer p{font-size:13px;color:#a8c2b6;max-width:290px}
-footer h4{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#8eafa1;margin:0 0 16px}
-footer a{display:block;font-size:13px;margin:10px 0;color:#d9e9e1}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:38px;padding-top:20px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:11px;color:#8eafa1}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
-.view{display:none}.view.active{display:block}
-.modal-backdrop{position:fixed;inset:0;background:rgba(9,34,27,.58);backdrop-filter:blur(5px);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
-.modal-backdrop.open{display:flex}
-.modal{width:min(510px,100%);background:white;border-radius:25px;padding:35px;box-shadow:0 30px 100px rgba(0,0,0,.2);position:relative}
-.modal .status-symbol{margin-bottom:20px}.modal h2{font-size:29px;line-height:1.15;letter-spacing:-.05em;margin:0 0 14px}.modal p{font-size:14px;color:var(--muted);margin:0 0 25px}.modal-close{position:absolute;right:20px;top:18px;border:0;background:var(--cream);border-radius:50%;width:32px;height:32px;color:var(--green);font-size:20px}
-.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--green-dark);color:white;border-radius:999px;padding:12px 20px;font-size:13px;z-index:70;transition:transform .3s;box-shadow:var(--shadow)}.toast.show{transform:translateX(-50%) translateY(0)}
-[dir="rtl"] .step:after{content:"←";right:auto;left:-14px}
-@media(max-width:1050px){.navlinks{gap:12px}.navlinks a{font-size:12px}.hero-grid{gap:35px}.steps{grid-template-columns:repeat(3,1fr)}.step:after{display:none}.visual{min-height:410px}}
-@media(max-width:800px){.container{width:min(100% - 30px,620px)}.topline .container{justify-content:center;text-align:center}.nav{min-height:68px;gap:10px}.brand small{display:none}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;background:var(--cream);padding:20px 20px 25px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:12px 0;font-size:14px;border-bottom:1px solid var(--line)}.navlinks a:last-child{border:0}.nav-actions{margin-left:auto}.menu-toggle{display:block}.nav-actions .btn{display:none}.lang button{padding:6px 8px}.hero{padding:48px 0}.hero-grid{grid-template-columns:1fr;gap:40px}.hero p{font-size:15px}.visual{min-height:365px;max-width:550px;width:100%;margin:auto}.visual-main{inset:10px 15px 0 15px}.floating-card.top{right:0}.section{padding:65px 0}.section-head{display:block}.section-head p{margin-top:18px}.grid-3,.contact-grid,.transparency-grid,.faq{grid-template-columns:1fr;gap:18px}.steps{grid-template-columns:1fr 1fr}.step h3{margin-top:18px}.transparency-grid{gap:35px}.footer-grid{grid-template-columns:1fr 1fr;gap:25px}.footer-grid>div:first-child{grid-column:1/-1}.contact-card,.form-card{padding:26px}.status-banner{align-items:flex-start;padding:20px}}
-@media(max-width:430px){h1{font-size:42px}.hero-buttons .btn{width:100%}.visual{min-height:320px}.visual-copy h2{font-size:27px}.floating-card{padding:12px}.floating-card.bottom{left:0}.steps{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.modal{padding:28px 23px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
-</style>
+  <meta
+    name="description"
+    content="Zestafoni Forward is an independent community cleanup initiative in Zestafoni, Georgia."
+  >
+
+  <meta name="theme-color" content="#176b53">
+
+  <title>Zestafoni Forward — Cleaner Zestafoni. Built together.</title>
+
+  <style>
+    :root {
+      --ink: #17352f;
+      --muted: #61736e;
+      --cream: #f7f8f3;
+      --paper: #ffffff;
+      --green: #176b53;
+      --green-dark: #104b3b;
+      --mint: #dceee5;
+      --mint-dark: #c6e2d5;
+      --gold: #e7b65d;
+      --line: #dfe8e2;
+      --danger-bg: #fff5ef;
+      --danger-border: #f0d2c2;
+      --danger-text: #8a4f34;
+      --shadow: 0 18px 50px rgba(20, 61, 48, 0.09);
+      --shadow-small: 0 8px 25px rgba(20, 61, 48, 0.06);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family:
+        Inter,
+        "Noto Sans Georgian",
+        "DejaVu Sans",
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    body.ka {
+      font-family:
+        "Noto Sans Georgian",
+        Inter,
+        "DejaVu Sans",
+        Arial,
+        sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a,
+    button {
+      font: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* --------------------------------
+       TOP BAR
+    -------------------------------- */
+
+    .topline {
+      background: var(--green-dark);
+      color: #eaf5ef;
+      font-size: 12px;
+      letter-spacing: 0.025em;
+    }
+
+    .topline .container {
+      min-height: 38px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 0;
+    }
+
+    .top-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex: 0 0 auto;
+    }
+
+    /* --------------------------------
+       HEADER
+    -------------------------------- */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(247, 248, 243, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(223, 232, 226, 0.85);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: max-content;
+    }
+
+    .logo {
+      width: 43px;
+      height: 43px;
+      border-radius: 14px;
+      background: var(--green);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      font-size: 20px;
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .logo::after {
+      content: "";
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 15px;
+      letter-spacing: -0.03em;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 19px;
+      margin-left: auto;
+    }
+
+    .navlinks a {
+      font-size: 12px;
+      font-weight: 700;
+      color: #52665f;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .navlinks a:hover,
+    .navlinks a.active {
+      color: var(--green);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang {
+      display: flex;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px;
+      background: white;
+    }
+
+    .lang button {
+      border: 0;
+      background: transparent;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    .lang button.active {
+      background: var(--green);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--green);
+      border-radius: 12px;
+      padding: 9px 11px;
+      line-height: 1;
+      font-size: 19px;
+    }
+
+    /* --------------------------------
+       BUTTONS
+    -------------------------------- */
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 19px;
+      font-weight: 750;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 8px 20px rgba(23, 107, 83, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--green);
+      border: 1px solid var(--line);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--mint-dark);
+      background: #fbfdfb;
+    }
+
+    .btn-soft {
+      background: var(--mint);
+      color: var(--green-dark);
+    }
+
+    .btn-soft:hover {
+      background: var(--mint-dark);
+    }
+
+    /* --------------------------------
+       HERO
+    -------------------------------- */
+
+    .hero {
+      padding: 78px 0 70px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      border: 1px solid rgba(23, 107, 83, 0.06);
+      border-radius: 50%;
+      right: -230px;
+      top: -180px;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(44px, 5.2vw, 74px);
+      line-height: 1.03;
+      letter-spacing: -0.065em;
+      margin: 19px 0 24px;
+      font-weight: 850;
+    }
+
+    h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    .hero p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 555px;
+      margin: 0 0 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 27px;
+      color: var(--muted);
+      font-size: 12px;
+      max-width: 525px;
+    }
+
+    .hero-note strong {
+      color: var(--ink);
+    }
+
+    .icon-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--mint);
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-weight: 850;
+      flex: 0 0 auto;
+    }
+
+    /* --------------------------------
+       HERO VISUAL
+    -------------------------------- */
+
+    .visual {
+      position: relative;
+      min-height: 455px;
+    }
+
+    .visual-main {
+      position: absolute;
+      inset: 18px 0 0 35px;
+      background: var(--green);
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .visual-main::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 50%;
+      right: -100px;
+      top: -100px;
+    }
+
+    .visual-main::after {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      left: -260px;
+      bottom: -260px;
+    }
+
+    .visual-copy {
+      position: absolute;
+      left: 35px;
+      right: 35px;
+      top: 35px;
+      color: white;
+      z-index: 3;
+    }
+
+    .visual-copy small {
+      color: #b8d8ca;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      font-weight: 850;
+    }
+
+    .visual-copy h2 {
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: -0.05em;
+      margin: 13px 0 0;
+      max-width: 310px;
+    }
+
+    .hill {
+      position: absolute;
+      bottom: -5px;
+      left: -10%;
+      width: 120%;
+      height: 58%;
+      background: #2c8469;
+      border-radius: 50% 50% 0 0 / 38% 38% 0 0;
+      transform: rotate(-7deg);
+    }
+
+    .hill.two {
+      background: #4b9b7c;
+      height: 39%;
+      bottom: -70px;
+      transform: rotate(10deg);
+    }
+
+    .leaf-mark {
+      position: absolute;
+      z-index: 4;
+      left: 50%;
+      top: 54%;
+      transform: translate(-50%, -50%) rotate(-12deg);
+      width: 116px;
+      height: 76px;
+      border-radius: 100% 0 100% 0;
+      background: #f4f7ef;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .leaf-mark::before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 2px;
+      background: var(--green);
+      left: 22px;
+      top: 38px;
+      transform: rotate(-38deg);
+      transform-origin: left center;
+    }
+
+    .leaf-mark::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 40px;
+      background: var(--green);
+      left: 57px;
+      top: 20px;
+      transform: rotate(40deg);
+    }
+
+    .floating-card {
+      position: absolute;
+      z-index: 5;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 17px;
+      box-shadow: var(--shadow);
+    }
+
+    .floating-card.top {
+      top: 0;
+      right: -12px;
+      display: flex;
+      gap: 11px;
+      align-items: center;
+    }
+
+    .floating-card.bottom {
+      bottom: 0;
+      left: 0;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .floating-card strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .floating-card small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* --------------------------------
+       GENERAL SECTIONS
+    -------------------------------- */
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section.alt {
+      background: white;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 3.5vw, 45px);
+      line-height: 1.12;
+      letter-spacing: -0.05em;
+      margin: 12px 0 0;
+    }
+
+    .section-head p {
+      max-width: 410px;
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 15px;
+      margin: -10px 0 35px;
+    }
+
+    /* --------------------------------
+       NO FUNDRAISING NOTICE
+    -------------------------------- */
+
+    .no-fundraising {
+      background: #fff9ed;
+      border: 1px solid #f0dfb9;
+      border-radius: 20px;
+      padding: 25px 28px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .notice-symbol {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: #f7e5bd;
+      color: #8b641c;
+      display: grid;
+      place-items: center;
+      font-weight: 850;
+      flex: 0 0 auto;
+    }
+
+    .no-fundraising h3 {
+      font-size: 16px;
+      margin: 0 0 3px;
+    }
+
+    .no-fundraising p {
+      margin: 0;
+      color: #7d7058;
+      font-size: 13px;
+    }
+
+    /* --------------------------------
+       CARDS
+    -------------------------------- */
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 5px 20px rgba(20, 61, 48, 0.025);
+    }
+
+    .card.soft {
+      background: #fbfdfb;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: var(--mint);
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-size: 19px;
+      font-weight: 850;
+      margin-bottom: 24px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      letter-spacing: -0.03em;
+      margin: 0 0 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .card ul {
+      margin: 16px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card li {
+      margin: 8px 0;
+    }
+
+    /* --------------------------------
+       MISSION STATEMENT
+    -------------------------------- */
+
+    .statement {
+      font-size: clamp(25px, 3vw, 39px);
+      line-height: 1.25;
+      letter-spacing: -0.045em;
+      font-weight: 750;
+      max-width: 800px;
+      margin: 0;
+    }
+
+    .statement em {
+      color: var(--green);
+      font-style: normal;
+    }
+
+    /* --------------------------------
+       HOW IT WORKS
+    -------------------------------- */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      position: relative;
+      padding: 24px 18px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .step-num {
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 850;
+      letter-spacing: 0.1em;
+    }
+
+    .step h3 {
+      font-size: 15px;
+      line-height: 1.35;
+      margin: 25px 0 8px;
+    }
+
+    .step p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .step::after {
+      content: "→";
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      background: var(--cream);
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .step:last-child::after {
+      display: none;
+    }
+
+    /* --------------------------------
+       CLEANUPS
+    -------------------------------- */
+
+    .empty-cleanup {
+      border: 1px dashed #b9cbc3;
+      border-radius: 24px;
+      padding: 45px 30px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .empty-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 18px;
+      border-radius: 18px;
+      background: var(--mint);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .empty-cleanup h3 {
+      font-size: 22px;
+      margin: 0 0 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .empty-cleanup p {
+      max-width: 590px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .event-template {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .event-field {
+      padding: 18px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .event-field small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .event-field strong {
+      font-size: 13px;
+    }
+
+    .official-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .official-note strong {
+      color: var(--green-dark);
+    }
+
+    /* --------------------------------
+       SAFETY
+    -------------------------------- */
+
+    .safety-intro {
+      background: var(--green);
+      color: white;
+      border-radius: 26px;
+      padding: 35px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .safety-intro::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 50%;
+      right: -120px;
+      top: -140px;
+    }
+
+    .safety-intro h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 27px;
+      letter-spacing: -0.04em;
+      margin: 0 0 10px;
+    }
+
+    .safety-intro p {
+      position: relative;
+      z-index: 1;
+      color: #c7ded4;
+      max-width: 700px;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .hazard-card {
+      border: 1px solid var(--danger-border);
+      background: var(--danger-bg);
+    }
+
+    .hazard-card .card-icon {
+      background: #f6dfd1;
+      color: var(--danger-text);
+    }
+
+    .hazard-list {
+      list-style: none;
+      padding: 0 !important;
+      margin: 15px 0 0 !important;
+    }
+
+    .hazard-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 10px 0;
+      color: var(--danger-text);
+      font-size: 13px;
+    }
+
+    .hazard-list li::before {
+      content: "×";
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: #efd0c0;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .rules-list {
+      list-style: none;
+      padding: 0 !important;
+      margin: 15px 0 0 !important;
+    }
+
+    .rules-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 12px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .rules-list li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    /* --------------------------------
+       AUTHORITY / OPERATING NOTE
+    -------------------------------- */
+
+    .authority-note {
+      margin-top: 25px;
+      padding: 23px 25px;
+      border-left: 4px solid var(--gold);
+      background: #fffdf7;
+      border-radius: 0 18px 18px 0;
+      border-top: 1px solid #eee5cf;
+      border-right: 1px solid #eee5cf;
+      border-bottom: 1px solid #eee5cf;
+    }
+
+    .authority-note strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .authority-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* --------------------------------
+       TRANSPARENCY
+    -------------------------------- */
+
+    .transparency {
+      background: var(--green);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .transparency::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      right: -280px;
+      top: -180px;
+    }
+
+    .transparency .eyebrow {
+      color: #c5e5d5;
+    }
+
+    .transparency .dot {
+      background: var(--gold);
+    }
+
+    .transparency h2 {
+      font-size: clamp(31px, 4vw, 51px);
+      line-height: 1.1;
+      letter-spacing: -0.055em;
+      max-width: 650px;
+      margin: 15px 0 18px;
+    }
+
+    .transparency > .container > p {
+      color: #c7ded4;
+      max-width: 650px;
+      font-size: 15px;
+      margin-bottom: 35px;
+    }
+
+    .transparency-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .promise {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 15px;
+      padding: 15px 17px;
+      font-size: 13px;
+    }
+
+    .check {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #a8d4bf;
+      color: var(--green-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 850;
+      flex: 0 0 auto;
+    }
+
+    /* --------------------------------
+       TRANSPARENCY RECORD TEMPLATE
+    -------------------------------- */
+
+    .record-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .record-item {
+      padding: 20px 17px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .record-item span {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 850;
+      margin-bottom: 7px;
+    }
+
+    .record-item strong {
+      font-size: 13px;
+    }
+
+    /* --------------------------------
+       FAQ
+    -------------------------------- */
+
+    .faq {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 0 20px;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 0;
+      font-weight: 750;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--green);
+      font-size: 20px;
+      font-weight: 400;
+      flex: 0 0 auto;
+    }
+
+    details[open] summary::after {
+      content: "−";
+    }
+
+    details p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    /* --------------------------------
+       CONTACT
+    -------------------------------- */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: var(--green-dark);
+      color: white;
+      border-radius: 24px;
+      padding: 35px;
+    }
+
+    .contact-card .eyebrow {
+      color: #c5e5d5;
+    }
+
+    .contact-card h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.05em;
+      margin: 14px 0;
+    }
+
+    .contact-card p {
+      color: #bed8cd;
+      font-size: 14px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 15px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 13px;
+      color: #e6f2ec;
+    }
+
+    .contact-detail span:first-child {
+      color: #9ec8b6;
+      font-weight: 800;
+      width: 20px;
+      flex: 0 0 20px;
+    }
+
+    .form-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 35px;
+    }
+
+    .form-card h3 {
+      font-size: 23px;
+      margin: 0 0 8px;
+      letter-spacing: -0.04em;
+    }
+
+    .form-card > p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 750;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fbfcfa;
+      border-radius: 12px;
+      padding: 13px;
+      font: inherit;
+      font-size: 13px;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-warning {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: -5px;
+      margin-bottom: 16px;
+    }
+
+    /* --------------------------------
+       FOOTER
+    -------------------------------- */
+
+    footer {
+      background: #102f27;
+      color: #d9e9e1;
+      padding: 50px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 45px;
+    }
+
+    footer .brand strong {
+      color: white;
+    }
+
+    footer .brand small {
+      color: #9ebbb0;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #a8c2b6;
+      max-width: 340px;
+    }
+
+    footer h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8eafa1;
+      margin: 0 0 16px;
+    }
+
+    footer a {
+      display: block;
+      font-size: 13px;
+      margin: 10px 0;
+      color: #d9e9e1;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      margin-top: 38px;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: #8eafa1;
+    }
+
+    /* --------------------------------
+       TOAST
+    -------------------------------- */
+
+    .toast {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120px);
+      background: var(--green-dark);
+      color: white;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-size: 13px;
+      z-index: 70;
+      transition: transform 0.3s ease;
+      box-shadow: var(--shadow);
+      max-width: calc(100% - 30px);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* --------------------------------
+       REVEAL
+    -------------------------------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* --------------------------------
+       RESPONSIVE
+    -------------------------------- */
+
+    @media (max-width: 1100px) {
+      .navlinks {
+        gap: 12px;
+      }
+
+      .navlinks a {
+        font-size: 11px;
+      }
+
+      .hero-grid {
+        gap: 35px;
+      }
+
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .step::after {
+        display: none;
+      }
+
+      .record-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .container {
+        width: min(100% - 30px, 680px);
+      }
+
+      .topline .container {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav {
+        min-height: 68px;
+        gap: 10px;
+      }
+
+      .brand small {
+        display: none;
+      }
+
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 18px 20px 24px;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        box-shadow: 0 15px 25px rgba(20, 61, 48, 0.05);
+      }
+
+      .navlinks.open {
+        display: flex;
+      }
+
+      .navlinks a {
+        padding: 13px 0;
+        font-size: 14px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .navlinks a:last-child {
+        border-bottom: 0;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 50px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .visual {
+        min-height: 365px;
+        max-width: 550px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .visual-main {
+        inset: 10px 15px 0 15px;
+      }
+
+      .floating-card.top {
+        right: 0;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 18px;
+      }
+
+      .grid-3,
+      .grid-2,
+      .contact-grid,
+      .transparency-grid,
+      .faq {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .event-template {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .record-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .contact-card,
+      .form-card {
+        padding: 26px;
+      }
+
+      .no-fundraising {
+        align-items: flex-start;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .visual {
+        min-height: 320px;
+      }
+
+      .visual-copy h2 {
+        font-size: 27px;
+      }
+
+      .floating-card {
+        padding: 12px;
+      }
+
+      .floating-card strong {
+        font-size: 12px;
+      }
+
+      .floating-card small {
+        font-size: 10px;
+      }
+
+      .steps,
+      .event-template,
+      .record-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid > div:first-child {
+        grid-column: auto;
+      }
+
+      .safety-intro,
+      .card {
+        padding: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="topline"><div class="container"><span data-i18n="topline">A local initiative in development · Zestafoni, Georgia</span><span data-i18n="statusShort">Organization setup in progress</span></div></div>
-<header>
-<nav class="container nav" aria-label="Main navigation">
-<a href="#home" class="brand" data-route="home"><span class="logo" aria-hidden="true">Z</span><span><strong>Zestafoni Forward</strong><small data-i18n="brandSub">Community support initiative</small></span></a>
-<div class="navlinks" id="navlinks">
-<a href="#home" data-route="home" data-i18n="navHome">Home</a>
-<a href="#about" data-route="about" data-i18n="navAbout">About</a>
-<a href="#mission" data-route="mission" data-i18n="navMission">Our Mission</a>
-<a href="#hospitals" data-route="hospitals" data-i18n="navHospitals">Hospital Needs</a>
-<a href="#transparency" data-route="transparency" data-i18n="navTransparency">Transparency</a>
-<a href="#faq" data-route="faq" data-i18n="navFaq">FAQ</a>
-<a href="#contact" data-route="contact" data-i18n="navContact">Contact</a>
-</div>
-<div class="nav-actions">
-<div class="lang" aria-label="Language selector"><button type="button" data-lang="ka">🇬🇪 ქართული</button><button type="button" data-lang="en">🇬🇧 English</button></div>
-<button class="btn btn-primary" data-progress="donations" data-i18n="donate">Donate</button>
-<button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-</div>
-</nav>
-</header>
 
-<main>
-<section id="home" class="view active">
-<section class="hero"><div class="container hero-grid">
-<div class="reveal">
-<div class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">A better future, built together</span></div>
-<h1 data-i18n="heroTitle">Help Zestafoni<br>Step Into the<br><em style="color:var(--green);font-style:normal">Future.</em></h1>
-<p data-i18n="heroText">A local initiative bringing ordinary people together to support hospitals and improve healthcare in Zestafoni and the surrounding community.</p>
-<div class="hero-buttons"><button class="btn btn-primary" data-progress="donations" data-i18n="heroButton">How donations will work <span>↗</span></button><a href="#about" class="btn btn-outline" data-route="about" data-i18n="learnMore">Learn about the project</a></div>
-<div class="hero-note"><span class="icon-circle">✓</span><span><strong data-i18n="heroNoteStrong">Built on trust, not promises.</strong><br><span data-i18n="heroNote">The project is being established. Donations are not available yet.</span></span></div>
-</div>
-<div class="visual reveal" aria-label="Illustration representing community healthcare">
-<div class="visual-main"><div class="visual-copy"><small data-i18n="visualLabel">Zestafoni · Georgia</small><h2 data-i18n="visualTitle">Small acts.<br>Meaningful change.</h2></div><div class="hill"></div><div class="hill two"></div><div class="cross" aria-hidden="true"></div></div>
-<div class="floating-card top"><div class="icon-circle">↗</div><div><strong data-i18n="floatTop">Community first</strong><small data-i18n="floatTopSub">Local needs, shared effort</small></div></div>
-<div class="floating-card bottom"><div class="icon-circle">◎</div><div><strong data-i18n="floatBottom">Transparency</strong><small data-i18n="floatBottomSub">Every step explained</small></div></div>
-</div>
-</div></section>
-<section class="section alt"><div class="container">
-<div class="section-head reveal"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="statusEyebrow">Where we are now</span></div><h2 data-i18n="statusTitle">Building the foundation<br>before asking for support.</h2></div><p data-i18n="statusIntro">We are taking the time to establish the project responsibly, identify genuine needs, and prepare systems people can trust.</p></div>
-<div class="status-banner reveal"><div class="status-symbol">!</div><div><h3 data-i18n="statusHeading">Donations are not available yet.</h3><p data-i18n="statusText">The organization is currently being established legally. We are preparing hospital relationships, confirming legitimate needs, and designing a transparent donation process.</p></div><button class="btn btn-soft" data-progress="donations" data-i18n="statusButton">Read the full notice</button></div>
-</div></section>
-<section class="section" id="mission"><div class="container">
-<div class="section-head reveal"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="missionEyebrow">Why this matters</span></div><h2 data-i18n="missionTitle">You don't have to be rich<br>to make a difference.</h2></div><p data-i18n="missionIntro">The strength of a community is not measured by one person's wealth, but by what people can accomplish together.</p></div>
-<div class="grid-3"><article class="card reveal"><div class="card-icon">♧</div><h3 data-i18n="missionCard1Title">Many small contributions</h3><p data-i18n="missionCard1">A modest contribution can become meaningful when many people take part. Support should feel possible for ordinary citizens.</p></article><article class="card reveal"><div class="card-icon">⌂</div><h3 data-i18n="missionCard2Title">Local needs, local impact</h3><p data-i18n="missionCard2">The long-term goal is to support healthcare improvements in Zestafoni and nearby communities, based on needs confirmed by hospitals.</p></article><article class="card reveal"><div class="card-icon">✓</div><h3 data-i18n="missionCard3Title">Trust through clarity</h3><p data-i18n="missionCard3">No vague promises. Future campaigns should explain what is needed, why it matters, how money is used, and what was achieved.</p></article></div>
-</div></section>
-<section class="section alt"><div class="container"><div class="section-head reveal"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="processEyebrow">The intended process</span></div><h2 data-i18n="processTitle">From a real need<br>to a visible result.</h2></div><p data-i18n="processIntro">This is the planned model for future campaigns. It is not operational yet.</p></div>
-<div class="steps"><article class="step reveal"><span class="step-num">01</span><h3 data-i18n="step1Title">A need is identified</h3><p data-i18n="step1">Citizens, staff, or community members can bring attention to a possible need.</p></article><article class="step reveal"><span class="step-num">02</span><h3 data-i18n="step2Title">The hospital confirms it</h3><p data-i18n="step2">The relevant hospital verifies the need and its legitimacy.</p></article><article class="step reveal"><span class="step-num">03</span><h3 data-i18n="step3Title">A campaign is prepared</h3><p data-i18n="step3">The project defines the goal, costs, responsible parties, and documentation.</p></article><article class="step reveal"><span class="step-num">04</span><h3 data-i18n="step4Title">Funds are collected legally</h3><p data-i18n="step4">Only after legal setup and proper systems are ready can fundraising begin.</p></article><article class="step reveal"><span class="step-num">05</span><h3 data-i18n="step5Title">The result is published</h3><p data-i18n="step5">Campaign outcomes and appropriate financial documentation are shared.</p></article></div>
-</div></section>
-<section class="section" id="hospitals"><div class="container"><div class="section-head reveal"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="needsEyebrow">Future hospital support</span></div><h2 data-i18n="needsTitle">Hospital needs,<br>handled responsibly.</h2></div><p data-i18n="needsIntro">These are illustrative examples of possible future campaign categories. They are not active campaigns and do not represent confirmed hospital requests.</p></div>
-<div class="grid-3"><article class="card campaign reveal"><div class="campaign-top"><span class="badge badge-progress" data-i18n="badgeExample">Example · In progress</span><div class="campaign-art">＋</div></div><div class="campaign-body"><h3 data-i18n="campaign1Title">Hospital equipment</h3><p data-i18n="campaign1">A possible future campaign for essential equipment, only if a hospital confirms a specific need.</p><button class="btn btn-outline" data-progress="hospitals" data-i18n="viewStatus">View status</button></div></article><article class="card campaign reveal"><div class="campaign-top" style="background:#e8e9f5"><span class="badge badge-progress" data-i18n="badgeExample">Example · In progress</span><div class="campaign-art" style="color:#5c6299">▦</div></div><div class="campaign-body"><h3 data-i18n="campaign2Title">Medical supplies</h3><p data-i18n="campaign2">A possible future campaign for verified supplies or consumables required by a local facility.</p><button class="btn btn-outline" data-progress="hospitals" data-i18n="viewStatus">View status</button></div></article><article class="card campaign reveal"><div class="campaign-top" style="background:#f6e9d8"><span class="badge badge-progress" data-i18n="badgeExample">Example · In progress</span><div class="campaign-art" style="color:#a57c43">↗</div></div><div class="campaign-body"><h3 data-i18n="campaign3Title">Facility improvements</h3><p data-i18n="campaign3">A possible future campaign for practical improvements confirmed to benefit patients and staff.</p><button class="btn btn-outline" data-progress="hospitals" data-i18n="viewStatus">View status</button></div></article></div>
-</div></section>
-<section class="section transparency" id="transparency"><div class="container transparency-grid"><div class="reveal"><div class="eyebrow"><span class="dot"></span><span data-i18n="transEyebrow">Our standard for trust</span></div><h2 data-i18n="transTitle">Transparency should be built in from day one.</h2><p data-i18n="transText">When the project is legally ready and donations become available, we intend to make every campaign understandable from its goal to its outcome.</p><button class="btn btn-soft" data-route="transparency" data-i18n="transButton">See our transparency plan ↗</button></div><div class="promise-list reveal"><div class="promise"><span class="check">✓</span><span data-i18n="promise1">Campaign goals and confirmed needs</span></div><div class="promise"><span class="check">✓</span><span data-i18n="promise2">Amount raised and campaign progress</span></div><div class="promise"><span class="check">✓</span><span data-i18n="promise3">Expenses and appropriate invoices or receipts</span></div><div class="promise"><span class="check">✓</span><span data-i18n="promise4">Confirmation of completed work or delivered support</span></div><div class="promise"><span class="check">✓</span><span data-i18n="promise5">Before-and-after documentation where applicable</span></div></div></div></section>
-<section class="section" id="faq"><div class="container faq"><div class="reveal"><div class="eyebrow"><span class="dot"></span><span data-i18n="faqEyebrow">Questions, answered honestly</span></div><h2 style="font-size:clamp(31px,4vw,48px);line-height:1.1;letter-spacing:-.055em;margin:15px 0" data-i18n="faqTitle">What you should know<br>before getting involved.</h2><p style="color:var(--muted);font-size:14px" data-i18n="faqIntro">The project is still being established. These answers will be updated as concrete information becomes available.</p></div><div class="faq-list reveal">
-<details><summary data-i18n="faq1q">Why can't I donate yet?</summary><p data-i18n="faq1a">The organization is not legally established yet, and the donation system is not operational. We do not want to accept money before the appropriate legal, financial, and accountability systems are ready.</p></details>
-<details><summary data-i18n="faq2q">When will donations become available?</summary><p data-i18n="faq2a">There is no confirmed launch date yet. The website will be updated when legal setup, hospital relationships, and the transparent donation process are ready.</p></details>
-<details><summary data-i18n="faq3q">Where will donations go?</summary><p data-i18n="faq3a">The intended focus is local hospitals and the surrounding healthcare community in Zestafoni. Future uses will be based on legitimate needs confirmed by the relevant hospitals.</p></details>
-<details><summary data-i18n="faq4q">How will you prove where money went?</summary><p data-i18n="faq4a">The project intends to publish campaign goals, amounts raised, expenses, appropriate documentation, and confirmation of results. The exact reporting system will be finalized before donations begin.</p></details>
-<details><summary data-i18n="faq5q">Can I suggest something a hospital needs?</summary><p data-i18n="faq5a">Yes, suggestions will be welcomed once the community-request system is ready. A suggestion will not automatically mean a need is confirmed or a campaign is approved.</p></details>
-<details><summary data-i18n="faq6q">Which hospitals will you support?</summary><p data-i18n="faq6a">No hospital partnership or support list is being claimed at this stage. The project will publish confirmed relationships when they exist.</p></details>
-<details><summary data-i18n="faq7q">Who is behind the project?</summary><p data-i18n="faq7a">This is a local initiative currently being developed. Founder, team, and organizational information will be published when it is finalized and appropriate to share.</p></details>
-<details><summary data-i18n="faq8q">Is the organization legally registered yet?</summary><p data-i18n="faq8a">No. The legal setup is still in progress. This website does not claim registered-charity status, tax-deductible donations, or current fundraising activity.</p></details>
-</div></div></section>
-<section class="section alt" id="contact"><div class="container"><div class="contact-grid"><div class="contact-card reveal"><div class="eyebrow" style="color:#c5e5d5"><span class="dot"></span><span data-i18n="contactEyebrow">Stay connected</span></div><h2 data-i18n="contactTitle">Want to help build this?</h2><p data-i18n="contactText">We are preparing the project carefully. Contact details and community channels will be added once they are officially established.</p><div class="contact-detail"><span>✉</span><span data-i18n="contactEmail">Email: to be announced</span></div><div class="contact-detail"><span>⌂</span><span data-i18n="contactPlace">Location: Zestafoni, Georgia</span></div><div class="contact-detail"><span>◎</span><span data-i18n="contactSocial">Social channels: to be announced</span></div></div><div class="form-card reveal"><h3 data-i18n="formTitle">Send a message</h3><p data-i18n="formText">This form is a visual placeholder until an official contact system is available. It does not send or store messages.</p><form id="placeholderForm"><label for="name" data-i18n="formName">Your name</label><input id="name" type="text" data-i18n-placeholder="formNamePlaceholder" placeholder="Your name"><label for="message" data-i18n="formMessage">Your message</label><textarea id="message" data-i18n-placeholder="formMessagePlaceholder" placeholder="What would you like to share?"></textarea><button class="btn btn-primary" type="submit" data-i18n="formButton">Show message</button></form></div></div></div></section>
-</section>
+  <!-- ================================
+       TOP STATUS BAR
+  ================================= -->
 
-<section id="about" class="view"><div class="section"><div class="container"><div class="section-head"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="aboutEyebrow">About the initiative</span></div><h2 data-i18n="aboutTitle">A local idea, being built carefully.</h2></div><p data-i18n="aboutIntro">This project is being developed to support Zestafoni's healthcare community through lawful, needs-based, and transparent future fundraising.</p></div><div class="grid-3"><article class="card"><div class="card-icon">⌂</div><h3 data-i18n="aboutCard1Title">Local by purpose</h3><p data-i18n="aboutCard1">The intended focus is Zestafoni and the surrounding community. No hospital partnership is claimed until it is confirmed.</p></article><article class="card"><div class="card-icon">◌</div><h3 data-i18n="aboutCard2Title">Still being established</h3><p data-i18n="aboutCard2">Legal registration, organizational details, partnerships, and operational systems are still in progress.</p></article><article class="card"><div class="card-icon">✓</div><h3 data-i18n="aboutCard3Title">No invented achievements</h3><p data-i18n="aboutCard3">There are no claimed donations, completed projects, statistics, testimonials, or fundraising results at this stage.</p></article></div><div class="status-banner" style="margin-top:25px"><div class="status-symbol">i</div><div><h3 data-i18n="aboutNoticeTitle">About the organization: in progress</h3><p data-i18n="aboutNotice">Founder details, registration information, team profiles, and confirmed partners will be published when they are ready.</p></div></div></div></div></section>
+  <div class="topline">
+    <div class="container">
+      <span data-i18n="topline">
+        Independent community cleanup initiative · Zestafoni, Georgia
+      </span>
 
-<section id="hospitalsPage" class="view"><div class="section"><div class="container"><div class="section-head"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="hospitalPageEyebrow">Hospital relationships</span></div><h2 data-i18n="hospitalPageTitle">Hospital projects are not active yet.</h2></div><p data-i18n="hospitalPageIntro">The project must first establish contact, verify needs, and build the appropriate legal and reporting systems.</p></div><div class="status-banner"><div class="status-symbol">!</div><div><h3 data-i18n="progressTitle">This part of the project is still in progress.</h3><p data-i18n="progressText">We're currently working on establishing the project legally and building the systems needed to operate it properly and transparently. We don't want to accept donations or make promises before everything is ready. Thank you for your patience and for wanting to help Zestafoni's hospitals.</p></div></div><div class="grid-3" style="margin-top:25px"><article class="card"><div class="card-icon">01</div><h3 data-i18n="future1Title">Confirmed needs</h3><p data-i18n="future1">Future needs will be published only after the relevant hospital confirms them.</p></article><article class="card"><div class="card-icon">02</div><h3 data-i18n="future2Title">Legitimate campaigns</h3><p data-i18n="future2">No fundraising campaign will be presented as active before the required setup is complete.</p></article><article class="card"><div class="card-icon">03</div><h3 data-i18n="future3Title">Public outcomes</h3><p data-i18n="future3">Completed support and appropriate documentation will be shared when projects eventually begin.</p></article></div></div></div></section>
+      <span class="top-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span data-i18n="statusShort">No fundraising</span>
+      </span>
+    </div>
+  </div>
 
-<section id="projects" class="view"><div class="section"><div class="container"><div class="section-head"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="projectsEyebrow">Future campaigns</span></div><h2 data-i18n="projectsTitle">Projects are coming later.</h2></div><p data-i18n="projectsIntro">There are no active fundraising campaigns or published fundraising totals at this time.</p></div><div class="status-banner"><div class="status-symbol">!</div><div><h3 data-i18n="progressTitle">This part of the project is still in progress.</h3><p data-i18n="progressText">We're currently working on establishing the project legally and building the systems needed to operate it properly and transparently. We don't want to accept donations or make promises before everything is ready. Thank you for your patience and for wanting to help Zestafoni's hospitals.</p></div></div></div></div></section>
 
-<section id="transparencyPage" class="view"><div class="section"><div class="container"><div class="section-head"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="transPageEyebrow">Accountability</span></div><h2 data-i18n="transPageTitle">Our transparency plan.</h2></div><p data-i18n="transPageIntro">Transparency is not a future decoration. It is part of the foundation being prepared now.</p></div><div class="grid-3"><article class="card"><div class="card-icon">01</div><h3 data-i18n="report1Title">Before a campaign</h3><p data-i18n="report1">The goal, confirmed need, responsible parties, and expected costs should be clear before fundraising begins.</p></article><article class="card"><div class="card-icon">02</div><h3 data-i18n="report2Title">During a campaign</h3><p data-i18n="report2">Progress, amount raised, and relevant updates should be understandable to supporters.</p></article><article class="card"><div class="card-icon">03</div><h3 data-i18n="report3Title">After completion</h3><p data-i18n="report3">Expenses, appropriate receipts, confirmation, and documentation should be published where applicable.</p></article></div><div class="status-banner"><div class="status-symbol">i</div><div><h3 data-i18n="reportNoticeTitle">Reports are not available yet.</h3><p data-i18n="reportNotice">No donations have been accepted and no projects have been completed through this initiative at this stage.</p></div></div></div></div></section>
+  <!-- ================================
+       HEADER
+  ================================= -->
 
-<section id="involved" class="view"><div class="section"><div class="container"><div class="section-head"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="involvedEyebrow">Get involved</span></div><h2 data-i18n="involvedTitle">Community support is being prepared.</h2></div><p data-i18n="involvedIntro">Volunteer opportunities, partnerships, and community requests will become available when the relevant systems are ready.</p></div><div class="grid-3"><article class="card"><div class="card-icon">♡</div><h3 data-i18n="involved1Title">Volunteer</h3><p data-i18n="involved1">Volunteer coordination is in progress. No volunteer roles are currently open.</p></article><article class="card"><div class="card-icon">↔</div><h3 data-i18n="involved2Title">Partnerships</h3><p data-i18n="involved2">Partnership development is in progress. No official partnerships are currently claimed.</p></article><article class="card"><div class="card-icon">⌁</div><h3 data-i18n="involved3Title">Community requests</h3><p data-i18n="involved3">A request system is being planned. A suggestion will not be treated as a confirmed hospital need.</p></article></div></div></div></section>
+  <header>
+    <nav class="container nav" aria-label="Main navigation">
 
-<section id="contactPage" class="view"><div class="section"><div class="container"><div class="section-head"><div><div class="eyebrow"><span class="dot"></span><span data-i18n="contactPageEyebrow">Contact</span></div><h2 data-i18n="contactPageTitle">Official contact details<br>will be added soon.</h2></div><p data-i18n="contactPageIntro">We will publish verified contact channels when the project has established them.</p></div><div class="status-banner"><div class="status-symbol">i</div><div><h3 data-i18n="contactNoticeTitle">Contact system: in progress</h3><p data-i18n="contactNotice">Email address, phone number, social channels, and official organizational details have not yet been supplied or established.</p></div></div></div></div></section>
-</main>
+      <a href="#home" class="brand" data-nav="home" aria-label="Zestafoni Forward home">
+        <span class="logo" aria-hidden="true">Z</span>
 
-<footer><div class="container"><div class="footer-grid"><div><a href="#home" class="brand" data-route="home"><span class="logo">Z</span><span><strong>Zestafoni Forward</strong><small data-i18n="brandSub">Community support initiative</small></span></a><p data-i18n="footerMission">A local initiative being developed to help Zestafoni's hospitals and healthcare community through lawful, needs-based, transparent future support.</p></div><div><h4 data-i18n="footerExplore">Explore</h4><a href="#about" data-route="about" data-i18n="navAbout">About</a><a href="#hospitals" data-route="hospitals" data-i18n="navHospitals">Hospital Needs</a><a href="#transparency" data-route="transparency" data-i18n="navTransparency">Transparency</a><a href="#faq" data-route="faq" data-i18n="navFaq">FAQ</a></div><div><h4 data-i18n="footerStatus">Status</h4><a href="#projects" data-route="projects" data-i18n="footerProjects">Projects · In Progress</a><a href="#involved" data-route="involved" data-i18n="footerInvolved">Get involved · In Progress</a><a href="#contact" data-route="contact" data-i18n="navContact">Contact</a><a href="#" data-progress="donations" data-i18n="donate">Donate</a></div></div><div class="footer-bottom"><span data-i18n="footerLegal">Not legally registered yet · Donations are not currently accepted</span><span>© <span id="year"></span> Zestafoni Forward</span></div></div></footer>
+        <span>
+          <strong>Zestafoni Forward</strong>
+          <small data-i18n="brandSub">Community cleanup initiative</small>
+        </span>
+      </a>
 
-<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText">
-<div class="modal"><button class="modal-close" id="modalClose" aria-label="Close">×</button><div class="status-symbol">!</div><h2 id="modalTitle" data-i18n="progressTitle">This part of the project is still in progress.</h2><p id="modalText" data-i18n="progressText">We're currently working on establishing the project legally and building the systems needed to operate it properly and transparently. We don't want to accept donations or make promises before everything is ready. Thank you for your patience and for wanting to help Zestafoni's hospitals.</p><button class="btn btn-primary" id="modalBack" data-i18n="backWebsite">Back to website</button></div>
-</div>
-<div class="toast" id="toast" role="status"></div>
+      <div class="navlinks" id="navlinks">
 
-<script>
-const translations={
-en:{
-topline:"A local initiative in development · Zestafoni, Georgia",statusShort:"Organization setup in progress",brandSub:"Community support initiative",
-navHome:"Home",navAbout:"About",navMission:"Our Mission",navHospitals:"Hospital Needs",navTransparency:"Transparency",navFaq:"FAQ",navContact:"Contact",donate:"Donate",
-eyebrow:"A better future, built together",heroTitle:"Help Zestafoni<br>Step Into the<br><em style='color:var(--green);font-style:normal'>Future.</em>",heroText:"A local initiative bringing ordinary people together to support hospitals and improve healthcare in Zestafoni and the surrounding community.",heroButton:"How donations will work ↗",learnMore:"Learn about the project",heroNoteStrong:"Built on trust, not promises.",heroNote:"The project is being established. Donations are not available yet.",
-visualLabel:"Zestafoni · Georgia",visualTitle:"Small acts.<br>Meaningful change.",floatTop:"Community first",floatTopSub:"Local needs, shared effort",floatBottom:"Transparency",floatBottomSub:"Every step explained",
-statusEyebrow:"Where we are now",statusTitle:"Building the foundation<br>before asking for support.",statusIntro:"We are taking the time to establish the project responsibly, identify genuine needs, and prepare systems people can trust.",statusHeading:"Donations are not available yet.",statusText:"The organization is currently being established legally. We are preparing hospital relationships, confirming legitimate needs, and designing a transparent donation process.",statusButton:"Read the full notice",
-missionEyebrow:"Why this matters",missionTitle:"You don't have to be rich<br>to make a difference.",missionIntro:"The strength of a community is not measured by one person's wealth, but by what people can accomplish together.",missionCard1Title:"Many small contributions",missionCard1:"A modest contribution can become meaningful when many people take part. Support should feel possible for ordinary citizens.",missionCard2Title:"Local needs, local impact",missionCard2:"The long-term goal is to support healthcare improvements in Zestafoni and nearby communities, based on needs confirmed by hospitals.",missionCard3Title:"Trust through clarity",missionCard3:"No vague promises. Future campaigns should explain what is needed, why it matters, how money is used, and what was achieved.",
-processEyebrow:"The intended process",processTitle:"From a real need<br>to a visible result.",processIntro:"This is the planned model for future campaigns. It is not operational yet.",step1Title:"A need is identified",step1:"Citizens, staff, or community members can bring attention to a possible need.",step2Title:"The hospital confirms it",step2:"The relevant hospital verifies the need and its legitimacy.",step3Title:"A campaign is prepared",step3:"The project defines the goal, costs, responsible parties, and documentation.",step4Title:"Funds are collected legally",step4:"Only after legal setup and proper systems are ready can fundraising begin.",step5Title:"The result is published",step5:"Campaign outcomes and appropriate financial documentation are shared.",
-needsEyebrow:"Future hospital support",needsTitle:"Hospital needs,<br>handled responsibly.",needsIntro:"These are illustrative examples of possible future campaign categories. They are not active campaigns and do not represent confirmed hospital requests.",badgeExample:"Example · In progress",campaign1Title:"Hospital equipment",campaign1:"A possible future campaign for essential equipment, only if a hospital confirms a specific need.",campaign2Title:"Medical supplies",campaign2:"A possible future campaign for verified supplies or consumables required by a local facility.",campaign3Title:"Facility improvements",campaign3:"A possible future campaign for practical improvements confirmed to benefit patients and staff.",viewStatus:"View status",
-transEyebrow:"Our standard for trust",transTitle:"Transparency should be built in from day one.",transText:"When the project is legally ready and donations become available, we intend to make every campaign understandable from its goal to its outcome.",transButton:"See our transparency plan ↗",promise1:"Campaign goals and confirmed needs",promise2:"Amount raised and campaign progress",promise3:"Expenses and appropriate invoices or receipts",promise4:"Confirmation of completed work or delivered support",promise5:"Before-and-after documentation where applicable",
-faqEyebrow:"Questions, answered honestly",faqTitle:"What you should know<br>before getting involved.",faqIntro:"The project is still being established. These answers will be updated as concrete information becomes available.",faq1q:"Why can't I donate yet?",faq1a:"The organization is not legally established yet, and the donation system is not operational. We do not want to accept money before the appropriate legal, financial, and accountability systems are ready.",faq2q:"When will donations become available?",faq2a:"There is no confirmed launch date yet. The website will be updated when legal setup, hospital relationships, and the transparent donation process are ready.",faq3q:"Where will donations go?",faq3a:"The intended focus is local hospitals and the surrounding healthcare community in Zestafoni. Future uses will be based on legitimate needs confirmed by the relevant hospitals.",faq4q:"How will you prove where money went?",faq4a:"The project intends to publish campaign goals, amounts raised, expenses, appropriate documentation, and confirmation of results. The exact reporting system will be finalized before donations begin.",faq5q:"Can I suggest something a hospital needs?",faq5a:"Yes, suggestions will be welcomed once the community-request system is ready. A suggestion will not automatically mean a need is confirmed or a campaign is approved.",faq6q:"Which hospitals will you support?",faq6a:"No hospital partnership or support list is being claimed at this stage. The project will publish confirmed relationships when they exist.",faq7q:"Who is behind the project?",faq7a:"This is a local initiative currently being developed. Founder, team, and organizational information will be published when it is finalized and appropriate to share.",faq8q:"Is the organization legally registered yet?",faq8a:"No. The legal setup is still in progress. This website does not claim registered-charity status, tax-deductible donations, or current fundraising activity.",
-contactEyebrow:"Stay connected",contactTitle:"Want to help build this?",contactText:"We are preparing the project carefully. Contact details and community channels will be added once they are officially established.",contactEmail:"Email: to be announced",contactPlace:"Location: Zestafoni, Georgia",contactSocial:"Social channels: to be announced",formTitle:"Send a message",formText:"This form is a visual placeholder until an official contact system is available. It does not send or store messages.",formName:"Your name",formNamePlaceholder:"Your name",formMessage:"Your message",formMessagePlaceholder:"What would you like to share?",formButton:"Show message",
-aboutEyebrow:"About the initiative",aboutTitle:"A local idea, being built carefully.",aboutIntro:"This project is being developed to support Zestafoni's healthcare community through lawful, needs-based, and transparent future fundraising.",aboutCard1Title:"Local by purpose",aboutCard1:"The intended focus is Zestafoni and the surrounding community. No hospital partnership is claimed until it is confirmed.",aboutCard2Title:"Still being established",aboutCard2:"Legal registration, organizational details, partnerships, and operational systems are still in progress.",aboutCard3Title:"No invented achievements",aboutCard3:"There are no claimed donations, completed projects, statistics, testimonials, or fundraising results at this stage.",aboutNoticeTitle:"About the organization: in progress",aboutNotice:"Founder details, registration information, team profiles, and confirmed partners will be published when they are ready.",
-hospitalPageEyebrow:"Hospital relationships",hospitalPageTitle:"Hospital projects are not active yet.",hospitalPageIntro:"The project must first establish contact, verify needs, and build the appropriate legal and reporting systems.",progressTitle:"This part of the project is still in progress.",progressText:"We're currently working on establishing the project legally and building the systems needed to operate it properly and transparently. We don't want to accept donations or make promises before everything is ready. Thank you for your patience and for wanting to help Zestafoni's hospitals.",backWebsite:"Back to website",future1Title:"Confirmed needs",future1:"Future needs will be published only after the relevant hospital confirms them.",future2Title:"Legitimate campaigns",future2:"No fundraising campaign will be presented as active before the required setup is complete.",future3Title:"Public outcomes",future3:"Completed support and appropriate documentation will be shared when projects eventually begin.",
-projectsEyebrow:"Future campaigns",projectsTitle:"Projects are coming later.",projectsIntro:"There are no active fundraising campaigns or published fundraising totals at this time.",
-transPageEyebrow:"Accountability",transPageTitle:"Our transparency plan.",transPageIntro:"Transparency is not a future decoration. It is part of the foundation being prepared now.",report1Title:"Before a campaign",report1:"The goal, confirmed need, responsible parties, and expected costs should be clear before fundraising begins.",report2Title:"During a campaign",report2:"Progress, amount raised, and relevant updates should be understandable to supporters.",report3Title:"After completion",report3:"Expenses, appropriate receipts, confirmation, and documentation should be published where applicable.",reportNoticeTitle:"Reports are not available yet.",reportNotice:"No donations have been accepted and no projects have been completed through this initiative at this stage.",
-involvedEyebrow:"Get involved",involvedTitle:"Community support is being prepared.",involvedIntro:"Volunteer opportunities, partnerships, and community requests will become available when the relevant systems are ready.",involved1Title:"Volunteer",involved1:"Volunteer coordination is in progress. No volunteer roles are currently open.",involved2Title:"Partnerships",involved2:"Partnership development is in progress. No official partnerships are currently claimed.",involved3Title:"Community requests",involved3:"A request system is being planned. A suggestion will not be treated as a confirmed hospital need.",
-contactPageEyebrow:"Contact",contactPageTitle:"Official contact details<br>will be added soon.",contactPageIntro:"We will publish verified contact channels when the project has established them.",contactNoticeTitle:"Contact system: in progress",contactNotice:"Email address, phone number, social channels, and official organizational details have not yet been supplied or established.",
-footerMission:"A local initiative being developed to help Zestafoni's hospitals and healthcare community through lawful, needs-based, transparent future support.",footerExplore:"Explore",footerStatus:"Status",footerProjects:"Projects · In Progress",footerInvolved:"Get involved · In Progress",footerLegal:"Not legally registered yet · Donations are not currently accepted",formToast:"This is a placeholder form. An official contact system is not available yet."
-},
-ka:{
-topline:"ადგილობრივი ინიციატივა განვითარების პროცესში · ზესტაფონი, საქართველო",statusShort:"ორგანიზაციის შექმნა მიმდინარეობს",brandSub:"საზოგადოებრივი მხარდაჭერის ინიციატივა",
-navHome:"მთავარი",navAbout:"ჩვენ შესახებ",navMission:"ჩვენი მისია",navHospitals:"საავადმყოფოების საჭიროებები",navTransparency:"გამჭვირვალობა",navFaq:"ხშირად დასმული კითხვები",navContact:"კონტაქტი",donate:"შემოწირულობა",
-eyebrow:"უკეთესი მომავალი — ერთად",heroTitle:"დავეხმაროთ ზესტაფონს<br>ნაბიჯი გადადგას<br><em style='color:var(--green);font-style:normal'>მომავლისკენ.</em>",heroText:"ადგილობრივი ინიციატივა, რომელიც აერთიანებს ადამიანებს ზესტაფონისა და მიმდებარე თემის საავადმყოფოებისა და ჯანდაცვის მხარდასაჭერად.",heroButton:"როგორ იმუშავებს შემოწირულობები ↗",learnMore:"გაიგე მეტი პროექტის შესახებ",heroNoteStrong:"ნდობაზე აგებული, არა დაპირებებზე.",heroNote:"პროექტის შექმნა მიმდინარეობს. შემოწირულობები ჯერ ხელმისაწვდომი არ არის.",
-visualLabel:"ზესტაფონი · საქართველო",visualTitle:"პატარა ქმედებები.<br>მნიშვნელოვანი ცვლილება.",floatTop:"საზოგადოება პირველ ადგილზე",floatTopSub:"ადგილობრივი საჭიროებები, საერთო ძალისხმევა",floatBottom:"გამჭვირვალობა",floatBottomSub:"ყველა ნაბიჯი ახსნილია",
-statusEyebrow:"სად ვართ ახლა",statusTitle:"ვქმნით საფუძველს,<br>სანამ მხარდაჭერას მოვითხოვთ.",statusIntro:"ვუთმობთ დროს პროექტის პასუხისმგებლიანად ჩამოყალიბებას, რეალური საჭიროებების გამოვლენასა და სანდო სისტემების მომზადებას.",statusHeading:"შემოწირულობები ჯერ ხელმისაწვდომი არ არის.",statusText:"ორგანიზაციის იურიდიული ჩამოყალიბება მიმდინარეობს. ვამზადებთ საავადმყოფოებთან ურთიერთობებს, ვადასტურებთ რეალურ საჭიროებებს და ვქმნით გამჭვირვალე შემოწირულობის პროცესს.",statusButton:"სრული განცხადების ნახვა",
-missionEyebrow:"რატომ არის ეს მნიშვნელოვანი",missionTitle:"დახმარებისთვის<br>მდიდარი ყოფნა არ არის საჭირო.",missionIntro:"საზოგადოების ძალა არ იზომება ერთი ადამიანის ქონებით — ის იზომება იმით, რისი გაკეთებაც ერთად შეგვიძლია.",missionCard1Title:"ბევრი მცირე წვლილი",missionCard1:"მცირე დახმარებაც მნიშვნელოვანი ხდება, როცა ბევრი ადამიანი ერთვება. მხარდაჭერა ჩვეულებრივი მოქალაქეებისთვისაც შესაძლებელი უნდა იყოს.",missionCard2Title:"ადგილობრივი საჭიროებები, ადგილობრივი შედეგი",missionCard2:"გრძელვადიანი მიზანია ზესტაფონსა და მიმდებარე თემებში ჯანდაცვის გაუმჯობესება — საავადმყოფოების მიერ დადასტურებული საჭიროებების საფუძველზე.",missionCard3Title:"ნდობა სიცხადით",missionCard3:"ბუნდოვანი დაპირებების გარეშე. მომავალმა კამპანიებმა უნდა განმარტოს რა არის საჭირო, რატომ, როგორ დაიხარჯება თანხა და რა შედეგი დადგა.",
-processEyebrow:"დაგეგმილი პროცესი",processTitle:"რეალური საჭიროებიდან<br>ხილულ შედეგამდე.",processIntro:"ეს არის მომავალი კამპანიებისთვის დაგეგმილი მოდელი. ის ჯერ არ ფუნქციონირებს.",step1Title:"საჭიროება გამოვლინდება",step1:"მოქალაქეებს, თანამშრომლებს ან თემის წევრებს შეეძლებათ შესაძლო საჭიროების შესახებ ინფორმაციის მოწოდება.",step2Title:"საავადმყოფო დაადასტურებს",step2:"შესაბამისი საავადმყოფო გადაამოწმებს საჭიროებასა და მის ნამდვილობას.",step3Title:"მომზადდება კამპანია",step3:"პროექტი განსაზღვრავს მიზანს, ხარჯებს, პასუხისმგებელ მხარეებსა და დოკუმენტაციას.",step4Title:"თანხა კანონიერად შეგროვდება",step4:"შემოწირულობები მხოლოდ იურიდიული და სათანადო სისტემების მომზადების შემდეგ დაიწყება.",step5Title:"შედეგი გამოქვეყნდება",step5:"გამოქვეყნდება კამპანიის შედეგები და შესაბამისი ფინანსური დოკუმენტაცია.",
-needsEyebrow:"მომავალი მხარდაჭერა საავადმყოფოებისთვის",needsTitle:"საავადმყოფოების საჭიროებები —<br>პასუხისმგებლიანი მიდგომით.",needsIntro:"ეს არის მომავალი კამპანიების შესაძლო კატეგორიების საილუსტრაციო მაგალითები. ისინი არ არის აქტიური კამპანიები და არ წარმოადგენს საავადმყოფოების დადასტურებულ მოთხოვნებს.",badgeExample:"მაგალითი · მიმდინარეობს",campaign1Title:"საავადმყოფოს აღჭურვილობა",campaign1:"მომავალი შესაძლო კამპანია აუცილებელი აღჭურვილობისთვის — მხოლოდ კონკრეტული საჭიროების დადასტურების შემთხვევაში.",campaign2Title:"სამედიცინო მარაგები",campaign2:"მომავალი შესაძლო კამპანია ადგილობრივი დაწესებულებისთვის საჭირო დადასტურებული მარაგებისა და სახარჯი მასალებისთვის.",campaign3Title:"დაწესებულების გაუმჯობესება",campaign3:"მომავალი შესაძლო კამპანია პრაქტიკული გაუმჯობესებებისთვის, რომლებიც დადასტურებულად სარგებელს მოუტანს პაციენტებსა და პერსონალს.",viewStatus:"სტატუსის ნახვა",
-transEyebrow:"ნდობის ჩვენი სტანდარტი",transTitle:"გამჭვირვალობა პირველივე დღიდან უნდა არსებობდეს.",transText:"როდესაც პროექტი იურიდიულად მზად იქნება და შემოწირულობები ხელმისაწვდომი გახდება, გვსურს თითოეული კამპანია გასაგები იყოს მიზნიდან შედეგამდე.",transButton:"გამჭვირვალობის გეგმის ნახვა ↗",promise1:"კამპანიის მიზნები და დადასტურებული საჭიროებები",promise2:"შეგროვებული თანხა და კამპანიის მიმდინარეობა",promise3:"ხარჯები და შესაბამისი ინვოისები ან ქვითრები",promise4:"შესრულებული სამუშაოს ან მიწოდებული დახმარების დადასტურება",promise5:"საჭიროების შემთხვევაში, ფოტოები „მანამდე და შემდეგ“",
-faqEyebrow:"კითხვები — გულწრფელი პასუხებით",faqTitle:"რა უნდა იცოდე<br>ჩართვამდე.",faqIntro:"პროექტის ჩამოყალიბება ჯერ მიმდინარეობს. პასუხები განახლდება კონკრეტული ინფორმაციის მიღებისთანავე.",faq1q:"რატომ არ შემიძლია ჯერ შემოწირულობის გაკეთება?",faq1a:"ორგანიზაცია ჯერ იურიდიულად ჩამოყალიბებული არ არის და შემოწირულობის სისტემა არ ფუნქციონირებს. თანხის მიღება არ გვინდა მანამდე, სანამ შესაბამისი სამართლებრივი, ფინანსური და ანგარიშვალდებულების სისტემები მზად არ იქნება.",faq2q:"როდის გახდება შემოწირულობები ხელმისაწვდომი?",faq2a:"დადასტურებული თარიღი ჯერ არ არსებობს. ვებგვერდი განახლდება, როდესაც იურიდიული მომზადება, საავადმყოფოებთან ურთიერთობები და გამჭვირვალე შემოწირულობის პროცესი მზად იქნება.",faq3q:"სად წავა შემოწირულობები?",faq3a:"მიზნობრივი მიმართულებაა ზესტაფონის ადგილობრივი საავადმყოფოები და მიმდებარე ჯანდაცვის საზოგადოება. მომავალი გამოყენება დაეფუძნება შესაბამისი საავადმყოფოების მიერ დადასტურებულ რეალურ საჭიროებებს.",faq4q:"როგორ დაამტკიცებთ, სად წავიდა თანხა?",faq4a:"პროექტი გეგმავს გამოაქვეყნოს კამპანიის მიზნები, შეგროვებული თანხები, ხარჯები, შესაბამისი დოკუმენტაცია და შედეგების დადასტურება. ანგარიშგების ზუსტი სისტემა შემოწირულობების დაწყებამდე დასრულდება.",faq5q:"შემიძლია შევატყობინო საავადმყოფოს საჭიროების შესახებ?",faq5a:"დიახ, როდესაც საზოგადოებრივი მოთხოვნების სისტემა მზად იქნება, წინადადებები მისაღები იქნება. თუმცა, წინადადება ავტომატურად არ ნიშნავს დადასტურებულ საჭიროებას ან დამტკიცებულ კამპანიას.",faq6q:"რომელ საავადმყოფოებს დაუჭერთ მხარს?",faq6a:"ამ ეტაპზე არც ერთი საავადმყოფოს პარტნიორობა ან მხარდაჭერის სია არ არის გამოცხადებული. დადასტურებული ურთიერთობები გამოქვეყნდება მათი არსებობის შემთხვევაში.",faq7q:"ვინ დგას პროექტის უკან?",faq7a:"ეს არის ადგილობრივი ინიციატივა, რომლის ჩამოყალიბებაც მიმდინარეობს. დამფუძნებლების, გუნდისა და ორგანიზაციის შესახებ ინფორმაცია გამოქვეყნდება, როდესაც ის საბოლოოდ მომზადდება.",faq8q:"არის თუ არა ორგანიზაცია უკვე იურიდიულად რეგისტრირებული?",faq8a:"არა. იურიდიული ჩამოყალიბება ჯერ მიმდინარეობს. ეს ვებგვერდი არ აცხადებს რეგისტრირებული საქველმოქმედო ორგანიზაციის სტატუსს, საგადასახადო შეღავათს ან მიმდინარე თანხების შეგროვებას.",
-contactEyebrow:"დაგვიკავშირდი",contactTitle:"გინდა, ამ პროექტის შექმნაში<br>დაგვეხმარო?",contactText:"პროექტს ფრთხილად ვამზადებთ. საკონტაქტო ინფორმაცია და საზოგადოებრივი არხები დაემატება მათი ოფიციალურად ჩამოყალიბების შემდეგ.",contactEmail:"ელფოსტა: მოგვიანებით გამოცხადდება",contactPlace:"ადგილმდებარეობა: ზესტაფონი, საქართველო",contactSocial:"სოციალური არხები: მოგვიანებით გამოცხადდება",formTitle:"მოგვწერე",formText:"ეს ფორმა მხოლოდ ვიზუალური მაგალითია, სანამ ოფიციალური საკონტაქტო სისტემა ხელმისაწვდომი გახდება. შეტყობინება არ იგზავნება და არ ინახება.",formName:"შენი სახელი",formNamePlaceholder:"შენი სახელი",formMessage:"შენი შეტყობინება",formMessagePlaceholder:"რისი გაზიარება გსურს?",formButton:"შეტყობინების ჩვენება",
-aboutEyebrow:"ინიციატივის შესახებ",aboutTitle:"ადგილობრივი იდეა, რომელსაც ფრთხილად ვქმნით.",aboutIntro:"პროექტი იქმნება ზესტაფონის ჯანდაცვის საზოგადოების მხარდასაჭერად — კანონიერი, საჭიროებებზე დაფუძნებული და გამჭვირვალე მომავალი დაფინანსების გზით.",aboutCard1Title:"მიზნით ადგილობრივი",aboutCard1:"მიზნობრივი არეა ზესტაფონი და მიმდებარე საზოგადოება. საავადმყოფოსთან პარტნიორობა არ ცხადდება მის დადასტურებამდე.",aboutCard2Title:"ჩამოყალიბება მიმდინარეობს",aboutCard2:"იურიდიული რეგისტრაცია, ორგანიზაციული დეტალები, პარტნიორობები და სამუშაო სისტემები ჯერ მზადების პროცესშია.",aboutCard3Title:"გამოგონილი მიღწევების გარეშე",aboutCard3:"ამ ეტაპზე არ არსებობს გამოცხადებული შემოწირულობები, დასრულებული პროექტები, სტატისტიკა, რეკომენდაციები ან თანხების შეგროვების შედეგები.",aboutNoticeTitle:"ორგანიზაციის შესახებ: მიმდინარეობს",aboutNotice:"დამფუძნებლების დეტალები, რეგისტრაციის ინფორმაცია, გუნდის პროფილები და დადასტურებული პარტნიორები გამოქვეყნდება მათი მზადყოფნის შემდეგ.",
-hospitalPageEyebrow:"საავადმყოფოებთან ურთიერთობები",hospitalPageTitle:"საავადმყოფოების პროექტები ჯერ აქტიური არ არის.",hospitalPageIntro:"პროექტმა ჯერ უნდა დაამყაროს კონტაქტი, გადაამოწმოს საჭიროებები და შექმნას შესაბამისი სამართლებრივი და ანგარიშგების სისტემები.",progressTitle:"პროექტის ეს ნაწილი ჯერ მიმდინარეობს.",progressText:"ამჟამად ვმუშაობთ პროექტის იურიდიულად ჩამოყალიბებასა და იმ სისტემების შექმნაზე, რომლებიც მის სწორად და გამჭვირვალედ მუშაობას უზრუნველყოფს. არ გვინდა შემოწირულობების მიღება ან დაპირებების გაცემა, სანამ ყველაფერი მზად არ იქნება. მადლობა მოთმინებისთვის და ზესტაფონის საავადმყოფოების დახმარების სურვილისთვის.",backWebsite:"ვებგვერდზე დაბრუნება",future1Title:"დადასტურებული საჭიროებები",future1:"მომავალი საჭიროებები გამოქვეყნდება მხოლოდ შესაბამისი საავადმყოფოს დადასტურების შემდეგ.",future2Title:"კანონიერი კამპანიები",future2:"არც ერთი კამპანია არ იქნება წარმოდგენილი აქტიურად, სანამ საჭირო მომზადება არ დასრულდება.",future3Title:"საჯარო შედეგები",future3:"დასრულებული მხარდაჭერა და შესაბამისი დოკუმენტაცია გამოქვეყნდება, როდესაც პროექტები დაიწყება.",
-projectsEyebrow:"მომავალი კამპანიები",projectsTitle:"პროექტები მოგვიანებით დაიწყება.",projectsIntro:"ამჟამად აქტიური კამპანიები ან შეგროვებული თანხების გამოქვეყნებული ჯამები არ არსებობს.",
-transPageEyebrow:"ანგარიშვალდებულება",transPageTitle:"ჩვენი გამჭვირვალობის გეგმა.",transPageIntro:"გამჭვირვალობა მომავლის დეკორაცია არ არის. ის იმ საფუძვლის ნაწილია, რომელსაც ახლა ვამზადებთ.",report1Title:"კამპანიამდე",report1:"მიზანი, დადასტურებული საჭიროება, პასუხისმგებელი მხარეები და მოსალოდნელი ხარჯები მკაფიო უნდა იყოს თანხების შეგროვების დაწყებამდე.",report2Title:"კამპანიის დროს",report2:"მხარდამჭერებისთვის გასაგები უნდა იყოს პროგრესი, შეგროვებული თანხა და მნიშვნელოვანი განახლებები.",report3Title:"დასრულების შემდეგ",report3:"შესაბამის შემთხვევებში უნდა გამოქვეყნდეს ხარჯები, ქვითრები, დადასტურება და დოკუმენტაცია.",reportNoticeTitle:"ანგარიშები ჯერ ხელმისაწვდომი არ არის.",reportNotice:"ამ ინიციატივის ფარგლებში ამ ეტაპზე არც შემოწირულობა მიღებულა და არც პროექტი დასრულებულა.",
-involvedEyebrow:"ჩაერთე",involvedTitle:"საზოგადოებრივი მხარდაჭერა მზადდება.",involvedIntro:"მოხალისეობა, პარტნიორობები და საზოგადოებრივი მოთხოვნები ხელმისაწვდომი გახდება შესაბამისი სისტემების მომზადების შემდეგ.",involved1Title:"მოხალისეობა",involved1:"მოხალისეების კოორდინაცია მიმდინარეობს. ამჟამად ღია მოხალისეობრივი პოზიციები არ არსებობს.",involved2Title:"პარტნიორობები",involved2:"პარტნიორობების განვითარება მიმდინარეობს. ამ ეტაპზე ოფიციალური პარტნიორობები არ ცხადდება.",involved3Title:"საზოგადოების მოთხოვნები",involved3:"მოთხოვნების სისტემა იგეგმება. წინადადება დადასტურებულ საავადმყოფოს საჭიროებად არ ჩაითვლება.",
-contactPageEyebrow:"კონტაქტი",contactPageTitle:"ოფიციალური საკონტაქტო ინფორმაცია<br>მალე დაემატება.",contactPageIntro:"დადასტურებულ საკონტაქტო არხებს მას შემდეგ გამოვაქვეყნებთ, რაც ისინი ჩამოყალიბდება.",contactNoticeTitle:"საკონტაქტო სისტემა: მიმდინარეობს",contactNotice:"ელფოსტა, ტელეფონის ნომერი, სოციალური არხები და ოფიციალური ორგანიზაციული დეტალები ჯერ არ არის მოწოდებული ან ჩამოყალიბებული.",
-footerMission:"ადგილობრივი ინიციატივა, რომელიც იქმნება ზესტაფონის საავადმყოფოებისა და ჯანდაცვის საზოგადოების დასახმარებლად — კანონიერი, საჭიროებებზე დაფუძნებული და გამჭვირვალე მომავალი მხარდაჭერით.",footerExplore:"დათვალიერება",footerStatus:"სტატუსი",footerProjects:"პროექტები · მიმდინარეობს",footerInvolved:"ჩართვა · მიმდინარეობს",footerLegal:"ჯერ არ არის იურიდიულად რეგისტრირებული · შემოწირულობები არ მიიღება",formToast:"ეს მხოლოდ ვიზუალური ფორმაა. ოფიციალური საკონტაქტო სისტემა ჯერ ხელმისაწვდომი არ არის."
-}};
-let lang=localStorage.getItem("zf-lang")||(navigator.language||"").toLowerCase().startsWith("ka")?"ka":"en";
-const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
-function t(key){return (translations[lang]&&translations[lang][key])||translations.en[key]||key}
-function applyLanguage(){
- document.documentElement.lang=lang;document.body.classList.toggle("ka",lang==="ka");
- $$("[data-i18n]").forEach(el=>el.innerHTML=t(el.dataset.i18n));
- $$("[data-i18n-placeholder]").forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));
- $$("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));
- $$("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang?"true":"false"));
-}
-function route(name,replace=false){
- const map={home:"home",about:"about",mission:"home",hospitals:"hospitalsPage",transparency:"transparencyPage",faq:"home",contact:"contactPage",projects:"projects",involved:"involved"};
- const target=map[name]||"home";
- $$(".view").forEach(v=>v.classList.toggle("active",v.id===target));
- if(name==="mission"||name==="faq"||name==="hospitals"&&target==="home"){
-   const anchor=name==="mission"?"mission":name==="faq"?"faq":"hospitals";
-   $("#home").classList.add("active");document.getElementById(anchor)?.scrollIntoView({behavior:"smooth",block:"start"});
- }else if(target==="home"){window.scrollTo({top:0,behavior:"smooth"})}else{window.scrollTo({top:0,behavior:"smooth"})}
- $$("[data-route]").forEach(a=>a.classList.toggle("active",a.dataset.route===name));
- if(!replace)history.pushState({route:name},"","#"+name);
- $("#navlinks").classList.remove("open");$("#menuToggle").setAttribute("aria-expanded","false");
-}
-function openProgress(){ $("#modalBackdrop").classList.add("open");$("#modalBack").focus(); }
-function closeProgress(){ $("#modalBackdrop").classList.remove("open"); }
-$$("[data-lang]").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.lang;localStorage.setItem("zf-lang",lang);applyLanguage()}));
-$$("[data-progress]").forEach(b=>b.addEventListener("click",e=>{e.preventDefault();openProgress()}));
-$$("[data-route]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();route(a.dataset.route)}));
-$("#menuToggle").addEventListener("click",()=>{const open=$("#navlinks").classList.toggle("open");$("#menuToggle").setAttribute("aria-expanded",String(open))});
-$("#modalClose").addEventListener("click",closeProgress);$("#modalBack").addEventListener("click",closeProgress);
-$("#modalBackdrop").addEventListener("click",e=>{if(e.target===e.currentTarget)closeProgress()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProgress()});
-$("#placeholderForm").addEventListener("submit",e=>{e.preventDefault();$("#toast").textContent=t("formToast");$("#toast").classList.add("show");setTimeout(()=>$("#toast").classList.remove("show"),3500)});
-window.addEventListener("popstate",()=>route(location.hash.slice(1)||"home",true));
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
-$$(".reveal").forEach(el=>observer.observe(el));
-$("#year").textContent=new Date().getFullYear();
-applyLanguage();
-if(location.hash)route(location.hash.slice(1),true);
-</script>
+        <a href="#home" data-nav="home" data-i18n="navHome">
+          Home
+        </a>
+
+        <a href="#about" data-nav="about" data-i18n="navAbout">
+          About
+        </a>
+
+        <a href="#mission" data-nav="mission" data-i18n="navMission">
+          Mission
+        </a>
+
+        <a href="#how-it-works" data-nav="how" data-i18n="navHow">
+          How it works
+        </a>
+
+        <a href="#cleanups" data-nav="cleanups" data-i18n="navCleanups">
+          Cleanups
+        </a>
+
+        <a href="#safety" data-nav="safety" data-i18n="navSafety">
+          Safety
+        </a>
+
+        <a href="#transparency" data-nav="transparency" data-i18n="navTransparency">
+          Transparency
+        </a>
+
+        <a href="#faq" data-nav="faq" data-i18n="navFaq">
+          FAQ
+        </a>
+
+        <a href="#contact" data-nav="contact" data-i18n="navContact">
+          Contact
+        </a>
+
+      </div>
+
+      <div class="nav-actions">
+
+        <div class="lang" aria-label="Language selector">
+          <button
+            type="button"
+            data-lang="ka"
+            aria-label="ქართული"
+            aria-pressed="false"
+          >
+            🇬🇪 ქართული
+          </button>
+
+          <button
+            type="button"
+            data-lang="en"
+            aria-label="English"
+            aria-pressed="true"
+          >
+            🇬🇧 English
+          </button>
+        </div>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="navlinks"
+        >
+          ☰
+        </button>
+
+      </div>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- ================================
+         HOME
+    ================================= -->
+
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span data-i18n="heroEyebrow">
+              A cleaner town, built together
+            </span>
+          </div>
+
+          <h1 data-i18n="heroTitle">
+            Cleaner Zestafoni.<br>
+            Built <em>together.</em>
+          </h1>
+
+          <p data-i18n="heroText">
+            Zestafoni Forward is an independent community cleanup initiative
+            bringing volunteers together to care for public spaces, document
+            the work, and encourage local participation.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#how-it-works"
+              class="btn btn-primary"
+              data-scroll="how-it-works"
+            >
+              <span data-i18n="heroPrimary">
+                How to participate
+              </span>
+              <span aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              href="#cleanups"
+              class="btn btn-outline"
+              data-scroll="cleanups"
+            >
+              <span data-i18n="heroSecondary">
+                View official cleanups
+              </span>
+            </a>
+
+          </div>
+
+          <div class="hero-note">
+
+            <span class="icon-circle" aria-hidden="true">✓</span>
+
+            <span>
+              <strong data-i18n="heroNoteStrong">
+                Independent. Voluntary. Local.
+              </strong>
+
+              <br>
+
+              <span data-i18n="heroNote">
+                No donations are accepted. Participation is unpaid and voluntary.
+              </span>
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- ABSTRACT VISUAL -->
+
+        <div
+          class="visual reveal"
+          role="img"
+          aria-label="Abstract green landscape representing Zestafoni and community action"
+        >
+
+          <div class="visual-main">
+
+            <div class="visual-copy">
+
+              <small data-i18n="visualLabel">
+                Zestafoni · Georgia
+              </small>
+
+              <h2 data-i18n="visualTitle">
+                Small actions.<br>
+                Visible change.
+              </h2>
+
+            </div>
+
+            <div class="hill"></div>
+            <div class="hill two"></div>
+
+            <div class="leaf-mark" aria-hidden="true"></div>
+
+          </div>
+
+
+          <div class="floating-card top">
+
+            <div class="icon-circle" aria-hidden="true">+</div>
+
+            <div>
+              <strong data-i18n="floatTop">
+                Community first
+              </strong>
+
+              <small data-i18n="floatTopSub">
+                Voluntary local action
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="floating-card bottom">
+
+            <div class="icon-circle" aria-hidden="true">◎</div>
+
+            <div>
+              <strong data-i18n="floatBottom">
+                Document the work
+              </strong>
+
+              <small data-i18n="floatBottomSub">
+                Clear public records
+              </small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         HOME STATUS
+    ================================= -->
+
+    <section class="section alt">
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="statusEyebrow">
+                Where we are now
+              </span>
+            </div>
+
+            <h2 data-i18n="statusTitle">
+              Building the project<br>
+              responsibly first.
+            </h2>
+
+          </div>
+
+          <p data-i18n="statusIntro">
+            The initiative is being prepared before the first public cleanup.
+            The organizers intend to clarify practical, safety and waste-handling
+            arrangements with the relevant local authorities.
+          </p>
+
+        </div>
+
+
+        <div class="no-fundraising reveal">
+
+          <div class="notice-symbol" aria-hidden="true">
+            !
+          </div>
+
+          <div>
+
+            <h3 data-i18n="noFundTitle">
+              No fundraising
+            </h3>
+
+            <p data-i18n="noFundText">
+              Zestafoni Forward does not currently accept donations, collect money,
+              or operate as a fundraising project.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         ABOUT
+    ================================= -->
+
+    <section class="section" id="about">
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="aboutEyebrow">
+                About the initiative
+              </span>
+            </div>
+
+            <h2 data-i18n="aboutTitle">
+              A local idea with<br>
+              clear boundaries.
+            </h2>
+
+          </div>
+
+          <p data-i18n="aboutIntro">
+            Zestafoni Forward is an independent community initiative focused on
+            voluntary cleanup activities in Zestafoni, Georgia.
+          </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+          <article class="card reveal">
+
+            <div class="card-icon" aria-hidden="true">⌂</div>
+
+            <h3 data-i18n="aboutCard1Title">
+              Independent
+            </h3>
+
+            <p data-i18n="aboutCard1">
+              Zestafoni Forward is not a municipal service or government body.
+              Any future cooperation with local authorities will only be described
+              after it has actually been established.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <div class="card-icon" aria-hidden="true">+</div>
+
+            <h3 data-i18n="aboutCard2Title">
+              Voluntary
+            </h3>
+
+            <p data-i18n="aboutCard2">
+              Cleanup participation is voluntary and unpaid. The purpose is to
+              make it easier for local people to contribute time and effort to
+              their community.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <div class="card-icon" aria-hidden="true">◎</div>
+
+            <h3 data-i18n="aboutCard3Title">
+              No fundraising
+            </h3>
+
+            <p data-i18n="aboutCard3">
+              This project does not accept donations and does not collect money.
+              Its current purpose is community cleanup and documentation.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="authority-note reveal">
+
+          <strong data-i18n="authorityTitle">
+            Before the first public event
+          </strong>
+
+          <p data-i18n="authorityText">
+            Zestafoni Forward is an independent community initiative. Before the
+            first public event, the organizers intend to clarify operating, safety
+            and waste-handling arrangements with the relevant local authorities.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         MISSION
+    ================================= -->
+
+    <section class="section alt" id="mission">
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="missionEyebrow">
+                Our mission
+              </span>
+            </div>
+
+            <h2 data-i18n="missionTitle">
+              Better public spaces<br>
+              start with participation.
+            </h2>
+
+          </div>
+
+          <p data-i18n="missionIntro">
+            The initiative is intentionally simple: organize responsible cleanups,
+            make participation accessible, and document what was done.
+          </p>
+
+        </div>
+
+
+        <p class="statement reveal" data-i18n="missionStatement">
+          We want to turn local concern into <em>practical action</em> —
+          without pretending to be a government service, without collecting money,
+          and without claiming results that have not happened.
+        </p>
+
+
+        <div class="grid-3" style="margin-top: 38px;">
+
+          <article class="card reveal">
+
+            <div class="card-icon" aria-hidden="true">01</div>
+
+            <h3 data-i18n="missionCard1Title">
+              Local impact
+            </h3>
+
+            <p data-i18n="missionCard1">
+              Focus on public areas in and around Zestafoni where an organized
+              community cleanup can make a practical difference.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <div class="card-icon" aria-hidden="true">02</div>
+
+            <h3 data-i18n="missionCard2Title">
+              Clear boundaries
+            </h3>
+
+            <p data-i18n="missionCard2">
+              Volunteers should know where an event starts and ends, what they
+              are expected to do, and what they must never touch.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <div class="card-icon" aria-hidden="true">03</div>
+
+            <h3 data-i18n="missionCard3Title">
+              Honest documentation
+            </h3>
+
+            <p data-i18n="missionCard3">
+              Future events can be documented through dates, general locations,
+              participation information, photographs, and waste-handling outcomes.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         HOW IT WORKS
+    ================================= -->
+
+    <section class="section alt" id="how-it-works">
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="processEyebrow">
+                How it works
+              </span>
+            </div>
+
+            <h2 data-i18n="processTitle">
+              From announcement<br>
+              to documented result.
+            </h2>
+
+          </div>
+
+          <p data-i18n="processIntro">
+            This is the intended structure for official Zestafoni Forward cleanups.
+            It becomes operational when an actual event is announced.
+          </p>
+
+        </div>
+
+
+        <div class="steps">
+
+          <article class="step reveal">
+            <span class="step-num">01</span>
+
+            <h3 data-i18n="step1Title">
+              Cleanup announced
+            </h3>
+
+            <p data-i18n="step1">
+              The official website or official project channels announce the
+              event, location and relevant instructions.
+            </p>
+          </article>
+
+
+          <article class="step reveal">
+            <span class="step-num">02</span>
+
+            <h3 data-i18n="step2Title">
+              Participants arrive
+            </h3>
+
+            <p data-i18n="step2">
+              Participants meet at the announced point and remain within the
+              designated cleanup area.
+            </p>
+          </article>
+
+
+          <article class="step reveal">
+            <span class="step-num">03</span>
+
+            <h3 data-i18n="step3Title">
+              Safety briefing
+            </h3>
+
+            <p data-i18n="step3">
+              A coordinator explains boundaries, equipment, hazards and what to
+              do if something unsafe is found.
+            </p>
+          </article>
+
+
+          <article class="step reveal">
+            <span class="step-num">04</span>
+
+            <h3 data-i18n="step4Title">
+              Cleanup
+            </h3>
+
+            <p data-i18n="step4">
+              Participants collect appropriate ordinary waste using gloves and
+              designated tools while following the event rules.
+            </p>
+          </article>
+
+
+          <article class="step reveal">
+            <span class="step-num">05</span>
+
+            <h3 data-i18n="step5Title">
+              Results documented
+            </h3>
+
+            <p data-i18n="step5">
+              The event can be documented through photographs, participation
+              information and the eventual waste-handling outcome.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         CLEANUPS
+    ================================= -->
+
+    <section class="section" id="cleanups">
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="cleanupsEyebrow">
+                Official cleanups
+              </span>
+            </div>
+
+            <h2 data-i18n="cleanupsTitle">
+              Nothing scheduled yet.
+            </h2>
+
+          </div>
+
+          <p data-i18n="cleanupsIntro">
+            We will publish official events here when they are actually organized
+            and announced.
+          </p>
+
+        </div>
+
+
+        <div class="empty-cleanup reveal">
+
+          <div class="empty-icon" aria-hidden="true">
+            ◎
+          </div>
+
+          <h3 data-i18n="emptyTitle">
+            No official cleanup scheduled yet.
+          </h3>
+
+          <p data-i18n="emptyText">
+            There are currently no official Zestafoni Forward cleanup events
+            announced. Please do not treat an independently organized cleanup
+            as an official Zestafoni Forward event unless it has been announced
+            through the project's official website or official channels.
+          </p>
+
+        </div>
+
+
+        <!-- Future event structure -->
+
+        <div class="event-template reveal">
+
+          <div class="event-field">
+            <small data-i18n="fieldDate">Date</small>
+            <strong data-i18n="fieldPending">To be announced</strong>
+          </div>
+
+          <div class="event-field">
+            <small data-i18n="fieldLocation">General location</small>
+            <strong data-i18n="fieldPending2">To be announced</strong>
+          </div>
+
+          <div class="event-field">
+            <small data-i18n="fieldParticipation">Participation</small>
+            <strong data-i18n="fieldVoluntary">Voluntary</strong>
+          </div>
+
+          <div class="event-field">
+            <small data-i18n="fieldStatus">Status</small>
+            <strong data-i18n="fieldNotScheduled">Not scheduled</strong>
+          </div>
+
+        </div>
+
+
+        <p class="official-note reveal" data-i18n="officialNote">
+          <strong>Official event:</strong> only a cleanup announced through the
+          official Zestafoni Forward website or official project channels is
+          represented as a Zestafoni Forward event.
+        </p>
+
+
+        <div style="margin-top: 45px;" class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="completedEyebrow">
+                Completed cleanups
+              </span>
+            </div>
+
+            <h2 data-i18n="completedTitle">
+              No results to report yet.
+            </h2>
+
+          </div>
+
+          <p data-i18n="completedIntro">
+            When an official cleanup takes place, its documentation can be added
+            here instead of inventing statistics or results in advance.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         SAFETY
+    ================================= -->
+
+    <section class="section alt" id="safety">
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="safetyEyebrow">
+                Safety
+              </span>
+            </div>
+
+            <h2 data-i18n="safetyTitle">
+              Safety comes before<br>
+              the cleanup.
+            </h2>
+
+          </div>
+
+          <p data-i18n="safetyIntroText">
+            Cleanup volunteers should only handle ordinary waste that can be
+            safely collected with the equipment and instructions provided.
+          </p>
+
+        </div>
+
+
+        <div class="safety-intro reveal">
+
+          <h3 data-i18n="safetyMainTitle">
+            If something looks hazardous, do not touch it.
+          </h3>
+
+          <p data-i18n="safetyMainText">
+            Step away, keep other participants away from it, and immediately
+            inform the event coordinator. Do not attempt to identify, move,
+            open, dismantle or dispose of a suspicious object yourself.
+          </p>
+
+        </div>
+
+
+        <div class="grid-2">
+
+          <article class="card hazard-card reveal">
+
+            <div class="card-icon" aria-hidden="true">!</div>
+
+            <h3 data-i18n="hazardTitle">
+              Never touch these
+            </h3>
+
+            <ul class="hazard-list">
+
+              <li data-i18n="hazard1">
+                Needles
+              </li>
+
+              <li data-i18n="hazard2">
+                Medical waste
+              </li>
+
+              <li data-i18n="hazard3">
+                Chemicals
+              </li>
+
+              <li data-i18n="hazard4">
+                Unknown liquids or substances
+              </li>
+
+              <li data-i18n="hazard5">
+                Weapons
+              </li>
+
+              <li data-i18n="hazard6">
+                Explosives or suspicious objects
+              </li>
+
+              <li data-i18n="hazard7">
+                Dead animals
+              </li>
+
+              <li data-i18n="hazard8">
+                Anything else that appears hazardous
+              </li>
+
+            </ul>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <div class="card-icon" aria-hidden="true">✓</div>
+
+            <h3 data-i18n="rulesTitle">
+              Basic participant rules
+            </h3>
+
+            <ul class="rules-list">
+
+              <li data-i18n="rule1">
+                Use gloves and designated cleanup tools.
+              </li>
+
+              <li data-i18n="rule2">
+                Never enter traffic or an unsafe roadway area.
+              </li>
+
+              <li data-i18n="rule3">
+                Do not climb buildings, structures, trees or unstable objects.
+              </li>
+
+              <li data-i18n="rule4">
+                Stay within the announced cleanup area.
+              </li>
+
+              <li data-i18n="rule5">
+                Report injuries, hazards and unsafe conditions immediately.
+              </li>
+
+              <li data-i18n="rule6">
+                Stop participating if you feel unwell.
+              </li>
+
+              <li data-i18n="rule7">
+                Follow the coordinator's instructions throughout the event.
+              </li>
+
+            </ul>
+
+          </article>
+
+        </div>
+
+
+        <div class="authority-note reveal">
+
+          <strong data-i18n="safetyCoordinatorTitle">
+            Coordinator-led events
+          </strong>
+
+          <p data-i18n="safetyCoordinatorText">
+            Official events are intended to have a coordinator responsible for
+            the briefing, boundaries and reporting process. Participants should
+            never feel pressured to handle something they consider unsafe.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         WASTE HANDLING
+    ================================= -->
+
+    <section class="section" id="waste">
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="wasteEyebrow">
+                Waste handling
+              </span>
+            </div>
+
+            <h2 data-i18n="wasteTitle">
+              A cleanup does not<br>
+              end with a full bag.
+            </h2>
+
+          </div>
+
+          <p data-i18n="wasteIntro">
+            Future events should have an appropriate plan for the collection,
+            transfer and disposal of the waste gathered during the activity.
+          </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+          <article class="card reveal">
+
+            <div class="card-icon">01</div>
+
+            <h3 data-i18n="wasteCard1Title">
+              Collect responsibly
+            </h3>
+
+            <p data-i18n="wasteCard1">
+              Waste should be gathered using suitable bags, gloves and designated
+              tools rather than left scattered around the cleanup area.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <div class="card-icon">02</div>
+
+            <h3 data-i18n="wasteCard2Title">
+              Arrange collection
+            </h3>
+
+            <p data-i18n="wasteCard2">
+              Before an official event, the organizers intend to clarify
+              appropriate waste collection and disposal arrangements.
+            </p>
+
+          </article>
+
+
+          <article class="card reveal">
+
+            <div class="card-icon">03</div>
+
+            <h3 data-i18n="wasteCard3Title">
+              Document the outcome
+            </h3>
+
+            <p data-i18n="wasteCard3">
+              Future cleanup records should state what happened to collected waste
+              instead of implying that filled bags were simply abandoned somewhere.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         TRANSPARENCY
+    ================================= -->
+
+    <section class="section transparency" id="transparency">
+      <div class="container">
+
+        <div class="eyebrow reveal">
+          <span class="dot"></span>
+
+          <span data-i18n="transEyebrow">
+            Transparency
+          </span>
+        </div>
+
+        <h2 class="reveal" data-i18n="transTitle">
+          Show the work.<br>
+          Don't manufacture the result.
+        </h2>
+
+        <p class="reveal" data-i18n="transText">
+          Every official cleanup should be documented honestly. Until an event
+          actually happens, there are no cleanup statistics, photographs or
+          results to claim.
+        </p>
+
+
+        <div class="transparency-grid">
+
+          <div class="promise reveal">
+
+            <span class="check">✓</span>
+
+            <span data-i18n="promise1">
+              Event date
+            </span>
+
+          </div>
+
+
+          <div class="promise reveal">
+
+            <span class="check">✓</span>
+
+            <span data-i18n="promise2">
+              General cleanup location
+            </span>
+
+          </div>
+
+
+          <div class="promise reveal">
+
+            <span class="check">✓</span>
+
+            <span data-i18n="promise3">
+              Participation information
+            </span>
+
+          </div>
+
+
+          <div class="promise reveal">
+
+            <span class="check">✓</span>
+
+            <span data-i18n="promise4">
+              Before-and-after photographs where appropriate
+            </span>
+
+          </div>
+
+
+          <div class="promise reveal">
+
+            <span class="check">✓</span>
+
+            <span data-i18n="promise5">
+              Waste-handling outcome
+            </span>
+
+          </div>
+
+
+          <div class="promise reveal">
+
+            <span class="check">✓</span>
+
+            <span data-i18n="promise6">
+              Relevant event notes and documentation
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         RECORD STRUCTURE
+    ================================= -->
+
+    <section class="section alt">
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="recordEyebrow">
+                Future event records
+              </span>
+            </div>
+
+            <h2 data-i18n="recordTitle">
+              A consistent record<br>
+              for every official cleanup.
+            </h2>
+
+          </div>
+
+          <p data-i18n="recordIntro">
+            This structure is ready for future events without inventing information
+            that does not exist yet.
+          </p>
+
+        </div>
+
+
+        <div class="record-grid">
+
+          <div class="record-item reveal">
+            <span data-i18n="record1Label">Date</span>
+            <strong data-i18n="recordPending">Not available yet</strong>
+          </div>
+
+          <div class="record-item reveal">
+            <span data-i18n="record2Label">Location</span>
+            <strong data-i18n="recordPending2">Not available yet</strong>
+          </div>
+
+          <div class="record-item reveal">
+            <span data-i18n="record3Label">Participants</span>
+            <strong data-i18n="recordPending3">Not available yet</strong>
+          </div>
+
+          <div class="record-item reveal">
+            <span data-i18n="record4Label">Photos</span>
+            <strong data-i18n="recordPending4">Not available yet</strong>
+          </div>
+
+          <div class="record-item reveal">
+            <span data-i18n="record5Label">Waste outcome</span>
+            <strong data-i18n="recordPending5">Not available yet</strong>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         FAQ
+    ================================= -->
+
+    <section class="section" id="faq">
+      <div class="container faq">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            <span class="dot"></span>
+
+            <span data-i18n="faqEyebrow">
+              Questions, answered clearly
+            </span>
+          </div>
+
+          <h2
+            style="
+              font-size: clamp(31px, 4vw, 48px);
+              line-height: 1.1;
+              letter-spacing: -0.055em;
+              margin: 15px 0;
+            "
+            data-i18n="faqTitle"
+          >
+            What you should know<br>
+            before participating.
+          </h2>
+
+          <p
+            style="
+              color: var(--muted);
+              font-size: 14px;
+              max-width: 390px;
+            "
+            data-i18n="faqIntro"
+          >
+            These answers describe the project's current position and will be
+            updated when actual event arrangements are established.
+          </p>
+
+        </div>
+
+
+        <div class="faq-list reveal">
+
+          <details>
+            <summary data-i18n="faq1q">
+              Is participation paid?
+            </summary>
+
+            <p data-i18n="faq1a">
+              No. Participation in Zestafoni Forward cleanup activities is
+              voluntary and unpaid.
+            </p>
+          </details>
+
+
+          <details>
+            <summary data-i18n="faq2q">
+              Do you accept donations?
+            </summary>
+
+            <p data-i18n="faq2a">
+              No. Zestafoni Forward is not currently a charity or fundraising
+              project and does not accept donations or collect money.
+            </p>
+          </details>
+
+
+          <details>
+            <summary data-i18n="faq3q">
+              How do I know an event is official?
+            </summary>
+
+            <p data-i18n="faq3a">
+              An official Zestafoni Forward cleanup will be announced through the
+              project's official website or official project channels. An activity
+              organized independently by other people is not automatically an
+              official Zestafoni Forward event.
+            </p>
+          </details>
+
+
+          <details>
+            <summary data-i18n="faq4q">
+              What if I find dangerous waste?
+            </summary>
+
+            <p data-i18n="faq4a">
+              Do not touch it. This includes needles, medical waste, chemicals,
+              unknown liquids or substances, weapons, explosives or suspicious
+              objects, dead animals, and anything else that appears hazardous.
+              Move away and inform the coordinator immediately.
+            </p>
+          </details>
+
+
+          <details>
+            <summary data-i18n="faq5q">
+              Is Zestafoni Forward a municipal service?
+            </summary>
+
+            <p data-i18n="faq5a">
+              No. Zestafoni Forward is an independent community initiative. It
+              does not claim municipal authority, government status or government
+              endorsement.
+            </p>
+          </details>
+
+
+          <details>
+            <summary data-i18n="faq6q">
+              Can I organize an event using the Zestafoni Forward name?
+            </summary>
+
+            <p data-i18n="faq6a">
+              An independent activity should not be presented as an official
+              Zestafoni Forward event unless it has been authorized and announced
+              through the project's official channels.
+            </p>
+          </details>
+
+
+          <details>
+            <summary data-i18n="faq7q">
+              Will there be official cleanups soon?
+            </summary>
+
+            <p data-i18n="faq7a">
+              No date has been announced yet. The first public event will only be
+              listed once the organizers have established the necessary operating,
+              safety and waste-handling arrangements.
+            </p>
+          </details>
+
+
+          <details>
+            <summary data-i18n="faq8q">
+              Does the project work with the municipality?
+            </summary>
+
+            <p data-i18n="faq8a">
+              No municipal cooperation is currently being claimed. The organizers
+              intend to speak with the relevant local authorities before the first
+              public cleanup to clarify practical arrangements and possible future
+              cooperation.
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================
+         CONTACT
+    ================================= -->
+
+    <section class="section alt" id="contact">
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <div class="contact-card reveal">
+
+            <div class="eyebrow">
+              <span class="dot"></span>
+
+              <span data-i18n="contactEyebrow">
+                Contact
+              </span>
+            </div>
+
+            <h2 data-i18n="contactTitle">
+              Help build something useful for Zestafoni.
+            </h2>
+
+            <p data-i18n="contactText">
+              Official contact channels will be published here once they are
+              established. Until then, this website does not claim to receive
+              or process messages.
+            </p>
+
+
+            <div class="contact-detail">
+              <span aria-hidden="true">◎</span>
+
+              <span data-i18n="contactPlace">
+                Zestafoni, Georgia
+              </span>
+            </div>
+
+
+            <div class="contact-detail">
+              <span aria-hidden="true">✉</span>
+
+              <span data-i18n="contactEmail">
+                Official email: to be announced
+              </span>
+            </div>
+
+
+            <div class="contact-detail">
+              <span aria-hidden="true">◌</span>
+
+              <span data-i18n="contactSocial">
+                Official social channels: to be announced
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="form-card reveal">
+
+            <h3 data-i18n="formTitle">
+              Contact form
+            </h3>
+
+            <p data-i18n="formText">
+              This is currently a visual placeholder. It does not send, transmit
+              or store your message because no backend has been connected.
+            </p>
+
+
+            <form id="placeholderForm">
+
+              <label for="name" data-i18n="formName">
+                Your name
+              </label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                data-i18n-placeholder="formNamePlaceholder"
+                placeholder="Your name"
+              >
+
+
+              <label for="message" data-i18n="formMessage">
+                Your message
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                data-i18n-placeholder="formMessagePlaceholder"
+                placeholder="What would you like to share?"
+              ></textarea>
+
+
+              <p class="form-warning" data-i18n="formWarning">
+                Nothing will be sent until a real contact system is connected.
+              </p>
+
+
+              <button
+                class="btn btn-primary"
+                type="submit"
+                data-i18n="formButton"
+              >
+                Check form
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================================
+       FOOTER
+  ================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <a href="#home" class="brand" data-nav="home">
+
+            <span class="logo" aria-hidden="true">
+              Z
+            </span>
+
+            <span>
+              <strong>Zestafoni Forward</strong>
+
+              <small data-i18n="brandSub">
+                Community cleanup initiative
+              </small>
+            </span>
+
+          </a>
+
+
+          <p data-i18n="footerMission">
+            Independent community cleanup initiative · Zestafoni, Georgia.
+            Voluntary participation, honest documentation and no fundraising.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h4 data-i18n="footerExplore">
+            Explore
+          </h4>
+
+          <a href="#about" data-nav="about" data-i18n="navAbout">
+            About
+          </a>
+
+          <a href="#mission" data-nav="mission" data-i18n="navMission">
+            Mission
+          </a>
+
+          <a href="#cleanups" data-nav="cleanups" data-i18n="navCleanups">
+            Cleanups
+          </a>
+
+          <a href="#safety" data-nav="safety" data-i18n="navSafety">
+            Safety
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h4 data-i18n="footerStatus">
+            Project status
+          </h4>
+
+          <a href="#transparency" data-nav="transparency" data-i18n="navTransparency">
+            Transparency
+          </a>
+
+          <a href="#faq" data-nav="faq" data-i18n="navFaq">
+            FAQ
+          </a>
+
+          <a href="#contact" data-nav="contact" data-i18n="navContact">
+            Contact
+          </a>
+
+          <span
+            style="
+              display:block;
+              font-size:13px;
+              margin-top:10px;
+              color:#8eafa1;
+            "
+            data-i18n="footerNoFund"
+          >
+            No donations accepted
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span data-i18n="footerLegal">
+          Independent community cleanup initiative · Zestafoni, Georgia ·
+          No donations accepted · Not a municipal service
+        </span>
+
+        <span>
+          © <span id="year"></span> Zestafoni Forward
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================================
+       TOAST
+  ================================= -->
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+
+  <script>
+    /*
+      ==========================================
+      ZESTAFONI FORWARD
+      Language + navigation + UI interactions
+      ==========================================
+    */
+
+    const translations = {
+
+      /* =====================================
+         ENGLISH
+      ===================================== */
+
+      en: {
+
+        topline:
+          "Independent community cleanup initiative · Zestafoni, Georgia",
+
+        statusShort:
+          "No fundraising",
+
+        brandSub:
+          "Community cleanup initiative",
+
+        navHome:
+          "Home",
+
+        navAbout:
+          "About",
+
+        navMission:
+          "Mission",
+
+        navHow:
+          "How it works",
+
+        navCleanups:
+          "Cleanups",
+
+        navSafety:
+          "Safety",
+
+        navTransparency:
+          "Transparency",
+
+        navFaq:
+          "FAQ",
+
+        navContact:
+          "Contact",
+
+
+        heroEyebrow:
+          "A cleaner town, built together",
+
+        heroTitle:
+          "Cleaner Zestafoni.<br>Built <em>together.</em>",
+
+        heroText:
+          "Zestafoni Forward is an independent community cleanup initiative bringing volunteers together to care for public spaces, document the work, and encourage local participation.",
+
+        heroPrimary:
+          "How to participate",
+
+        heroSecondary:
+          "View official cleanups",
+
+        heroNoteStrong:
+          "Independent. Voluntary. Local.",
+
+        heroNote:
+          "No donations are accepted. Participation is unpaid and voluntary.",
+
+        visualLabel:
+          "Zestafoni · Georgia",
+
+        visualTitle:
+          "Small actions.<br>Visible change.",
+
+        floatTop:
+          "Community first",
+
+        floatTopSub:
+          "Voluntary local action",
+
+        floatBottom:
+          "Document the work",
+
+        floatBottomSub:
+          "Clear public records",
+
+
+        statusEyebrow:
+          "Where we are now",
+
+        statusTitle:
+          "Building the project<br>responsibly first.",
+
+        statusIntro:
+          "The initiative is being prepared before the first public cleanup. The organizers intend to clarify practical, safety and waste-handling arrangements with the relevant local authorities.",
+
+        noFundTitle:
+          "No fundraising",
+
+        noFundText:
+          "Zestafoni Forward does not currently accept donations, collect money, or operate as a fundraising project.",
+
+
+        aboutEyebrow:
+          "About the initiative",
+
+        aboutTitle:
+          "A local idea with<br>clear boundaries.",
+
+        aboutIntro:
+          "Zestafoni Forward is an independent community initiative focused on voluntary cleanup activities in Zestafoni, Georgia.",
+
+        aboutCard1Title:
+          "Independent",
+
+        aboutCard1:
+          "Zestafoni Forward is not a municipal service or government body. Any future cooperation with local authorities will only be described after it has actually been established.",
+
+        aboutCard2Title:
+          "Voluntary",
+
+        aboutCard2:
+          "Cleanup participation is voluntary and unpaid. The purpose is to make it easier for local people to contribute time and effort to their community.",
+
+        aboutCard3Title:
+          "No fundraising",
+
+        aboutCard3:
+          "This project does not accept donations and does not collect money. Its current purpose is community cleanup and documentation.",
+
+        authorityTitle:
+          "Before the first public event",
+
+        authorityText:
+          "Zestafoni Forward is an independent community initiative. Before the first public event, the organizers intend to clarify operating, safety and waste-handling arrangements with the relevant local authorities.",
+
+
+        missionEyebrow:
+          "Our mission",
+
+        missionTitle:
+          "Better public spaces<br>start with participation.",
+
+        missionIntro:
+          "The initiative is intentionally simple: organize responsible cleanups, make participation accessible, and document what was done.",
+
+        missionStatement:
+          "We want to turn local concern into <em>practical action</em> — without pretending to be a government service, without collecting money, and without claiming results that have not happened.",
+
+        missionCard1Title:
+          "Local impact",
+
+        missionCard1:
+          "Focus on public areas in and around Zestafoni where an organized community cleanup can make a practical difference.",
+
+        missionCard2Title:
+          "Clear boundaries",
+
+        missionCard2:
+          "Volunteers should know where an event starts and ends, what they are expected to do, and what they must never touch.",
+
+        missionCard3Title:
+          "Honest documentation",
+
+        missionCard3:
+          "Future events can be documented through dates, general locations, participation information, photographs, and waste-handling outcomes.",
+
+
+        processEyebrow:
+          "How it works",
+
+        processTitle:
+          "From announcement<br>to documented result.",
+
+        processIntro:
+          "This is the intended structure for official Zestafoni Forward cleanups. It becomes operational when an actual event is announced.",
+
+        step1Title:
+          "Cleanup announced",
+
+        step1:
+          "The official website or official project channels announce the event, location and relevant instructions.",
+
+        step2Title:
+          "Participants arrive",
+
+        step2:
+          "Participants meet at the announced point and remain within the designated cleanup area.",
+
+        step3Title:
+          "Safety briefing",
+
+        step3:
+          "A coordinator explains boundaries, equipment, hazards and what to do if something unsafe is found.",
+
+        step4Title:
+          "Cleanup",
+
+        step4:
+          "Participants collect appropriate ordinary waste using gloves and designated tools while following the event rules.",
+
+        step5Title:
+          "Results documented",
+
+        step5:
+          "The event can be documented through photographs, participation information and the eventual waste-handling outcome.",
+
+
+        cleanupsEyebrow:
+          "Official cleanups",
+
+        cleanupsTitle:
+          "Nothing scheduled yet.",
+
+        cleanupsIntro:
+          "We will publish official events here when they are actually organized and announced.",
+
+        emptyTitle:
+          "No official cleanup scheduled yet.",
+
+        emptyText:
+          "There are currently no official Zestafoni Forward cleanup events announced. Please do not treat an independently organized cleanup as an official Zestafoni Forward event unless it has been announced through the project's official website or official channels.",
+
+        fieldDate:
+          "Date",
+
+        fieldLocation:
+          "General location",
+
+        fieldParticipation:
+          "Participation",
+
+        fieldStatus:
+          "Status",
+
+        fieldPending:
+          "To be announced",
+
+        fieldPending2:
+          "To be announced",
+
+        fieldVoluntary:
+          "Voluntary",
+
+        fieldNotScheduled:
+          "Not scheduled",
+
+        officialNote:
+          "<strong>Official event:</strong> only a cleanup announced through the official Zestafoni Forward website or official project channels is represented as a Zestafoni Forward event.",
+
+        completedEyebrow:
+          "Completed cleanups",
+
+        completedTitle:
+          "No results to report yet.",
+
+        completedIntro:
+          "When an official cleanup takes place, its documentation can be added here instead of inventing statistics or results in advance.",
+
+
+        safetyEyebrow:
+          "Safety",
+
+        safetyTitle:
+          "Safety comes before<br>the cleanup.",
+
+        safetyIntroText:
+          "Cleanup volunteers should only handle ordinary waste that can be safely collected with the equipment and instructions provided.",
+
+        safetyMainTitle:
+          "If something looks hazardous, do not touch it.",
+
+        safetyMainText:
+          "Step away, keep other participants away from it, and immediately inform the event coordinator. Do not attempt to identify, move, open, dismantle or dispose of a suspicious object yourself.",
+
+        hazardTitle:
+          "Never touch these",
+
+        hazard1:
+          "Needles",
+
+        hazard2:
+          "Medical waste",
+
+        hazard3:
+          "Chemicals",
+
+        hazard4:
+          "Unknown liquids or substances",
+
+        hazard5:
+          "Weapons",
+
+        hazard6:
+          "Explosives or suspicious objects",
+
+        hazard7:
+          "Dead animals",
+
+        hazard8:
+          "Anything else that appears hazardous",
+
+        rulesTitle:
+          "Basic participant rules",
+
+        rule1:
+          "Use gloves and designated cleanup tools.",
+
+        rule2:
+          "Never enter traffic or an unsafe roadway area.",
+
+        rule3:
+          "Do not climb buildings, structures, trees or unstable objects.",
+
+        rule4:
+          "Stay within the announced cleanup area.",
+
+        rule5:
+          "Report injuries, hazards and unsafe conditions immediately.",
+
+        rule6:
+          "Stop participating if you feel unwell.",
+
+        rule7:
+          "Follow the coordinator's instructions throughout the event.",
+
+        safetyCoordinatorTitle:
+          "Coordinator-led events",
+
+        safetyCoordinatorText:
+          "Official events are intended to have a coordinator responsible for the briefing, boundaries and reporting process. Participants should never feel pressured to handle something they consider unsafe.",
+
+
+        wasteEyebrow:
+          "Waste handling",
+
+        wasteTitle:
+          "A cleanup does not<br>end with a full bag.",
+
+        wasteIntro:
+          "Future events should have an appropriate plan for the collection, transfer and disposal of the waste gathered during the activity.",
+
+        wasteCard1Title:
+          "Collect responsibly",
+
+        wasteCard1:
+          "Waste should be gathered using suitable bags, gloves and designated tools rather than left scattered around the cleanup area.",
+
+        wasteCard2Title:
+          "Arrange collection",
+
+        wasteCard2:
+          "Before an official event, the organizers intend to clarify appropriate waste collection and disposal arrangements.",
+
+        wasteCard3Title:
+          "Document the outcome",
+
+        wasteCard3:
+          "Future cleanup records should state what happened to collected waste instead of implying that filled bags were simply abandoned somewhere.",
+
+
+        transEyebrow:
+          "Transparency",
+
+        transTitle:
+          "Show the work.<br>Don't manufacture the result.",
+
+        transText:
+          "Every official cleanup should be documented honestly. Until an event actually happens, there are no cleanup statistics, photographs or results to claim.",
+
+        promise1:
+          "Event date",
+
+        promise2:
+          "General cleanup location",
+
+        promise3:
+          "Participation information",
+
+        promise4:
+          "Before-and-after photographs where appropriate",
+
+        promise5:
+          "Waste-handling outcome",
+
+        promise6:
+          "Relevant event notes and documentation",
+
+
+        recordEyebrow:
+          "Future event records",
+
+        recordTitle:
+          "A consistent record<br>for every official cleanup.",
+
+        recordIntro:
+          "This structure is ready for future events without inventing information that does not exist yet.",
+
+        record1Label:
+          "Date",
+
+        record2Label:
+          "Location",
+
+        record3Label:
+          "Participants",
+
+        record4Label:
+          "Photos",
+
+        record5Label:
+          "Waste outcome",
+
+        recordPending:
+          "Not available yet",
+
+        recordPending2:
+          "Not available yet",
+
+        recordPending3:
+          "Not available yet",
+
+        recordPending4:
+          "Not available yet",
+
+        recordPending5:
+          "Not available yet",
+
+
+        faqEyebrow:
+          "Questions, answered clearly",
+
+        faqTitle:
+          "What you should know<br>before participating.",
+
+        faqIntro:
+          "These answers describe the project's current position and will be updated when actual event arrangements are established.",
+
+        faq1q:
+          "Is participation paid?",
+
+        faq1a:
+          "No. Participation in Zestafoni Forward cleanup activities is voluntary and unpaid.",
+
+        faq2q:
+          "Do you accept donations?",
+
+        faq2a:
+          "No. Zestafoni Forward is not currently a charity or fundraising project and does not accept donations or collect money.",
+
+        faq3q:
+          "How do I know an event is official?",
+
+        faq3a:
+          "An official Zestafoni Forward cleanup will be announced through the project's official website or official project channels. An activity organized independently by other people is not automatically an official Zestafoni Forward event.",
+
+        faq4q:
+          "What if I find dangerous waste?",
+
+        faq4a:
+          "Do not touch it. This includes needles, medical waste, chemicals, unknown liquids or substances, weapons, explosives or suspicious objects, dead animals, and anything else that appears hazardous. Move away and inform the coordinator immediately.",
+
+        faq5q:
+          "Is Zestafoni Forward a municipal service?",
+
+        faq5a:
+          "No. Zestafoni Forward is an independent community initiative. It does not claim municipal authority, government status or government endorsement.",
+
+        faq6q:
+          "Can I organize an event using the Zestafoni Forward name?",
+
+        faq6a:
+          "An independent activity should not be presented as an official Zestafoni Forward event unless it has been authorized and announced through the project's official channels.",
+
+        faq7q:
+          "Will there be official cleanups soon?",
+
+        faq7a:
+          "No date has been announced yet. The first public event will only be listed once the organizers have established the necessary operating, safety and waste-handling arrangements.",
+
+        faq8q:
+          "Does the project work with the municipality?",
+
+        faq8a:
+          "No municipal cooperation is currently being claimed. The organizers intend to speak with the relevant local authorities before the first public cleanup to clarify practical arrangements and possible future cooperation.",
+
+
+        contactEyebrow:
+          "Contact",
+
+        contactTitle:
+          "Help build something useful for Zestafoni.",
+
+        contactText:
+          "Official contact channels will be published here once they are established. Until then, this website does not claim to receive or process messages.",
+
+        contactPlace:
+          "Zestafoni, Georgia",
+
+        contactEmail:
+          "Official email: to be announced",
+
+        contactSocial:
+          "Official social channels: to be announced",
+
+        formTitle:
+          "Contact form",
+
+        formText:
+          "This is currently a visual placeholder. It does not send, transmit or store your message because no backend has been connected.",
+
+        formName:
+          "Your name",
+
+        formNamePlaceholder:
+          "Your name",
+
+        formMessage:
+          "Your message",
+
+        formMessagePlaceholder:
+          "What would you like to share?",
+
+        formWarning:
+          "Nothing will be sent until a real contact system is connected.",
+
+        formButton:
+          "Check form",
+
+
+        footerMission:
+          "Independent community cleanup initiative · Zestafoni, Georgia. Voluntary participation, honest documentation and no fundraising.",
+
+        footerExplore:
+          "Explore",
+
+        footerStatus:
+          "Project status",
+
+        footerNoFund:
+          "No donations accepted",
+
+        footerLegal:
+          "Independent community cleanup initiative · Zestafoni, Georgia · No donations accepted · Not a municipal service"
+
+      },
+
+
+      /* =====================================
+         GEORGIAN
+      ===================================== */
+
+      ka: {
+
+        topline:
+          "დამოუკიდებელი საზოგადოებრივი დასუფთავების ინიციატივა · ზესტაფონი, საქართველო",
+
+        statusShort:
+          "შემოწირულობები არ მიიღება",
+
+        brandSub:
+          "საზოგადოებრივი დასუფთავების ინიციატივა",
+
+        navHome:
+          "მთავარი",
+
+        navAbout:
+          "ჩვენ შესახებ",
+
+        navMission:
+          "მისია",
+
+        navHow:
+          "როგორ მუშაობს",
+
+        navCleanups:
+          "დასუფთავებები",
+
+        navSafety:
+          "უსაფრთხოება",
+
+        navTransparency:
+          "გამჭვირვალობა",
+
+        navFaq:
+          "FAQ",
+
+        navContact:
+          "კონტაქტი",
+
+
+        heroEyebrow:
+          "უფრო სუფთა ქალაქი — ერთად",
+
+        heroTitle:
+          "უფრო სუფთა ზესტაფონი.<br><em>ერთად.</em>",
+
+        heroText:
+          "Zestafoni Forward არის დამოუკიდებელი საზოგადოებრივი დასუფთავების ინიციატივა, რომელიც ადამიანებს აერთიანებს საჯარო სივრცეების მოსავლელად, შესრულებული სამუშაოს დასაფიქსირებლად და ადგილობრივი ჩართულობის წასახალისებლად.",
+
+        heroPrimary:
+          "როგორ მივიღო მონაწილეობა",
+
+        heroSecondary:
+          "ოფიციალური დასუფთავებების ნახვა",
+
+        heroNoteStrong:
+          "დამოუკიდებელი. ნებაყოფლობითი. ადგილობრივი.",
+
+        heroNote:
+          "შემოწირულობები არ მიიღება. მონაწილეობა ნებაყოფლობითი და ანაზღაურების გარეშეა.",
+
+        visualLabel:
+          "ზესტაფონი · საქართველო",
+
+        visualTitle:
+          "პატარა ქმედებები.<br>ხილული ცვლილება.",
+
+        floatTop:
+          "საზოგადოება პირველ ადგილზე",
+
+        floatTopSub:
+          "ნებაყოფლობითი ადგილობრივი ქმედება",
+
+        floatBottom:
+          "შესრულებული სამუშაოს დაფიქსირება",
+
+        floatBottomSub:
+          "გასაგები საჯარო ჩანაწერები",
+
+
+        statusEyebrow:
+          "სად ვართ ახლა",
+
+        statusTitle:
+          "პროექტს ჯერ<br>პასუხისმგებლიანად ვამზადებთ.",
+
+        statusIntro:
+          "ინიციატივა პირველი საჯარო დასუფთავების დაწყებამდე მზადდება. ორგანიზატორები გეგმავენ შესაბამის ადგილობრივ უწყებებთან საოპერაციო, უსაფრთხოებისა და ნარჩენების მართვის საკითხების გარკვევას.",
+
+        noFundTitle:
+          "შემოწირულობები არ მიიღება",
+
+        noFundText:
+          "Zestafoni Forward ამჟამად არ იღებს შემოწირულობებს, არ აგროვებს თანხას და არ წარმოადგენს თანხის შეგროვებაზე დაფუძნებულ პროექტს.",
+
+
+        aboutEyebrow:
+          "ინიციატივის შესახებ",
+
+        aboutTitle:
+          "ადგილობრივი იდეა<br>მკაფიო საზღვრებით.",
+
+        aboutIntro:
+          "Zestafoni Forward არის დამოუკიდებელი საზოგადოებრივი ინიციატივა, რომელიც ზესტაფონში ნებაყოფლობით დასუფთავების ღონისძიებებზეა ორიენტირებული.",
+
+        aboutCard1Title:
+          "დამოუკიდებელი",
+
+        aboutCard1:
+          "Zestafoni Forward არ არის მუნიციპალური სამსახური ან სახელმწიფო ორგანო. ადგილობრივ ხელისუფლებასთან შესაძლო თანამშრომლობა მხოლოდ მისი რეალურად ჩამოყალიბების შემდეგ იქნება აღწერილი.",
+
+        aboutCard2Title:
+          "ნებაყოფლობითი",
+
+        aboutCard2:
+          "დასუფთავებაში მონაწილეობა ნებაყოფლობითი და ანაზღაურების გარეშეა. მიზანია ადგილობრივ მოსახლეობას საკუთარი დროისა და ძალისხმევის გამოყენებით საზოგადოებაში წვლილის შეტანა გაუადვილდეს.",
+
+        aboutCard3Title:
+          "შემოწირულობების გარეშე",
+
+        aboutCard3:
+          "პროექტი არ იღებს შემოწირულობებს და არ აგროვებს თანხას. მისი ამჟამინდელი მიზანია საზოგადოებრივი დასუფთავება და შესრულებული სამუშაოს დოკუმენტირება.",
+
+        authorityTitle:
+          "პირველ საჯარო ღონისძიებამდე",
+
+        authorityText:
+          "Zestafoni Forward არის დამოუკიდებელი საზოგადოებრივი ინიციატივა. პირველი საჯარო ღონისძიების დაწყებამდე ორგანიზატორები გეგმავენ შესაბამის ადგილობრივ უწყებებთან საოპერაციო, უსაფრთხოებისა და ნარჩენების მართვის საკითხების გარკვევას.",
+
+
+        missionEyebrow:
+          "ჩვენი მისია",
+
+        missionTitle:
+          "უკეთესი საჯარო სივრცეები<br>ჩართულობით იწყება.",
+
+        missionIntro:
+          "ინიციატივის იდეა შეგნებულად მარტივია: პასუხისმგებლიანი დასუფთავებების ორგანიზება, მონაწილეობის ხელმისაწვდომობა და შესრულებული სამუშაოს დოკუმენტირება.",
+
+        missionStatement:
+          "გვინდა ადგილობრივი ზრუნვა ვაქციოთ <em>პრაქტიკულ მოქმედებად</em> — სახელმწიფო სამსახურად თავის წარმოჩენის, თანხის შეგროვებისა და ჯერ არარსებული შედეგების მითვისების გარეშე.",
+
+        missionCard1Title:
+          "ადგილობრივი გავლენა",
+
+        missionCard1:
+          "ფოკუსი იქნება ზესტაფონსა და მის მიმდებარედ არსებულ საჯარო სივრცეებზე, სადაც ორგანიზებულ საზოგადოებრივ დასუფთავებას პრაქტიკული შედეგის მოტანა შეუძლია.",
+
+        missionCard2Title:
+          "მკაფიო საზღვრები",
+
+        missionCard2:
+          "მონაწილეებმა უნდა იცოდნენ სად იწყება და მთავრდება ღონისძიება, რა არის მათი მოვალეობა და რისი შეხება არ შეიძლება.",
+
+        missionCard3Title:
+          "პატიოსანი დოკუმენტირება",
+
+        missionCard3:
+          "მომავალი ღონისძიებები შეიძლება დაფიქსირდეს თარიღით, ზოგადი ადგილმდებარეობით, მონაწილეობის ინფორმაციით, ფოტოებითა და ნარჩენების მართვის შედეგით.",
+
+
+        processEyebrow:
+          "როგორ მუშაობს",
+
+        processTitle:
+          "განცხადებიდან<br>დაფიქსირებულ შედეგამდე.",
+
+        processIntro:
+          "ეს არის Zestafoni Forward-ის ოფიციალური დასუფთავებებისთვის დაგეგმილი სტრუქტურა. ის ამოქმედდება მაშინ, როდესაც რეალური ღონისძიება გამოცხადდება.",
+
+        step1Title:
+          "დასუფთავება ცხადდება",
+
+        step1:
+          "ოფიციალურ ვებგვერდზე ან პროექტის ოფიციალურ არხებში ქვეყნდება ღონისძიება, ადგილი და შესაბამისი ინსტრუქციები.",
+
+        step2Title:
+          "მონაწილეები იკრიბებიან",
+
+        step2:
+          "მონაწილეები მიდიან გამოცხადებულ შეხვედრის ადგილზე და რჩებიან განსაზღვრულ დასუფთავების ტერიტორიაზე.",
+
+        step3Title:
+          "უსაფრთხოების ინსტრუქტაჟი",
+
+        step3:
+          "კოორდინატორი განმარტავს საზღვრებს, აღჭურვილობას, საფრთხეებს და მოქმედების წესს სახიფათო ნივთის აღმოჩენის შემთხვევაში.",
+
+        step4Title:
+          "დასუფთავება",
+
+        step4:
+          "მონაწილეები ხელთათმანებისა და შესაბამისი ხელსაწყოების გამოყენებით აგროვებენ ჩვეულებრივ ნარჩენს და იცავენ ღონისძიების წესებს.",
+
+        step5Title:
+          "შედეგის დოკუმენტირება",
+
+        step5:
+          "ღონისძიება შეიძლება დაფიქსირდეს ფოტოებით, მონაწილეობის ინფორმაციითა და ნარჩენების შემდგომი მართვის შედეგით.",
+
+
+        cleanupsEyebrow:
+          "ოფიციალური დასუფთავებები",
+
+        cleanupsTitle:
+          "ჯერ დაგეგმილი არაფერია.",
+
+        cleanupsIntro:
+          "ოფიციალურ ღონისძიებებს აქ გამოვაქვეყნებთ მხოლოდ მაშინ, როდესაც ისინი რეალურად იქნება ორგანიზებული და გამოცხადებული.",
+
+        emptyTitle:
+          "ოფიციალური დასუფთავება ჯერ დაგეგმილი არ არის.",
+
+        emptyText:
+          "ამჟამად Zestafoni Forward-ის არცერთი ოფიციალური დასუფთავების ღონისძიება არ არის გამოცხადებული. სხვა ადამიანების მიერ დამოუკიდებლად ორგანიზებული დასუფთავება ავტომატურად არ ითვლება Zestafoni Forward-ის ოფიციალურ ღონისძიებად, თუ ის პროექტის ოფიციალურ ვებგვერდზე ან ოფიციალურ არხებში არ გამოცხადებულა.",
+
+        fieldDate:
+          "თარიღი",
+
+        fieldLocation:
+          "ზოგადი ადგილმდებარეობა",
+
+        fieldParticipation:
+          "მონაწილეობა",
+
+        fieldStatus:
+          "სტატუსი",
+
+        fieldPending:
+          "გამოსაცხადებელია",
+
+        fieldPending2:
+          "გამოსაცხადებელია",
+
+        fieldVoluntary:
+          "ნებაყოფლობითი",
+
+        fieldNotScheduled:
+          "არ არის დაგეგმილი",
+
+        officialNote:
+          "<strong>ოფიციალური ღონისძიება:</strong> Zestafoni Forward-ის ღონისძიებად მხოლოდ ის დასუფთავება ითვლება, რომელიც პროექტის ოფიციალურ ვებგვერდზე ან ოფიციალურ არხებშია გამოცხადებული.",
+
+        completedEyebrow:
+          "დასრულებული დასუფთავებები",
+
+        completedTitle:
+          "ჯერ შედეგები არ გვაქვს.",
+
+        completedIntro:
+          "როდესაც ოფიციალური დასუფთავება ჩატარდება, მისი დოკუმენტაცია აქ დაემატება. წინასწარ გამოგონილი სტატისტიკა ან შედეგები არ იქნება გამოქვეყნებული.",
+
+
+        safetyEyebrow:
+          "უსაფრთხოება",
+
+        safetyTitle:
+          "დასუფთავებაზე<br>მნიშვნელოვანი უსაფრთხოებაა.",
+
+        safetyIntroText:
+          "მონაწილეებმა უნდა აიღონ მხოლოდ ისეთი ჩვეულებრივი ნარჩენი, რომლის უსაფრთხოდ შეგროვებაც შესაძლებელია არსებული აღჭურვილობისა და ინსტრუქციების შესაბამისად.",
+
+        safetyMainTitle:
+          "თუ რამე სახიფათოდ გამოიყურება — არ შეეხო.",
+
+        safetyMainText:
+          "მოშორდი ნივთს, სხვა მონაწილეებიც მოარიდე და დაუყოვნებლივ აცნობე ღონისძიების კოორდინატორს. არ ეცადო საეჭვო ნივთის ამოცნობას, გადაადგილებას, გახსნას, დაშლას ან დამოუკიდებლად გადაგდებას.",
+
+        hazardTitle:
+          "არ შეეხო შემდეგ ნივთებს",
+
+        hazard1:
+          "ნემსებს",
+
+        hazard2:
+          "სამედიცინო ნარჩენს",
+
+        hazard3:
+          "ქიმიურ ნივთიერებებს",
+
+        hazard4:
+          "უცნობ სითხეებს ან ნივთიერებებს",
+
+        hazard5:
+          "იარაღს",
+
+        hazard6:
+          "ასაფეთქებელ ან საეჭვო ობიექტებს",
+
+        hazard7:
+          "მკვდარ ცხოველებს",
+
+        hazard8:
+          "ნებისმიერ სხვა ნივთს, რომელიც სახიფათოდ გამოიყურება",
+
+        rulesTitle:
+          "მონაწილის ძირითადი წესები",
+
+        rule1:
+          "გამოიყენე ხელთათმანები და დანიშნული ხელსაწყოები.",
+
+        rule2:
+          "არ გახვიდე მოძრაობაში და არ შეხვიდე სახიფათო გზის მონაკვეთში.",
+
+        rule3:
+          "არ აძვრე შენობებზე, კონსტრუქციებზე, ხეებზე ან არასტაბილურ ობიექტებზე.",
+
+        rule4:
+          "დარჩი გამოცხადებული დასუფთავების ტერიტორიის ფარგლებში.",
+
+        rule5:
+          "დაუყოვნებლივ შეატყობინე კოორდინატორს ტრავმის, საფრთხის ან სახიფათო მდგომარეობის შესახებ.",
+
+        rule6:
+          "თუ თავს ცუდად გრძნობ, შეწყვიტე მონაწილეობა.",
+
+        rule7:
+          "ღონისძიების განმავლობაში დაიცავი კოორდინატორის მითითებები.",
+
+        safetyCoordinatorTitle:
+          "კოორდინატორის მიერ ორგანიზებული ღონისძიებები",
+
+        safetyCoordinatorText:
+          "ოფიციალურ ღონისძიებებს უნდა ჰყავდეს კოორდინატორი, რომელიც პასუხისმგებელია ინსტრუქტაჟზე, ტერიტორიის საზღვრებსა და საფრთხეების შესახებ ინფორმაციის მიღებაზე. მონაწილემ არასდროს უნდა იგრძნოს ზეწოლა, რომ სახიფათო ნივთს შეეხოს.",
+
+
+        wasteEyebrow:
+          "ნარჩენების მართვა",
+
+        wasteTitle:
+          "დასუფთავება სავსე ტომრით<br>არ მთავრდება.",
+
+        wasteIntro:
+          "მომავალ ღონისძიებებს უნდა ჰქონდეს შესაბამისი გეგმა შეგროვებული ნარჩენების შეგროვების, გადატანისა და განთავსებისთვის.",
+
+        wasteCard1Title:
+          "შეაგროვე პასუხისმგებლიანად",
+
+        wasteCard1:
+          "ნარჩენი უნდა შეგროვდეს შესაბამისი ტომრებით, ხელთათმანებითა და დანიშნული ხელსაწყოებით და არ უნდა დარჩეს დასუფთავებულ ტერიტორიაზე.",
+
+        wasteCard2Title:
+          "მოაწესრიგე გატანა",
+
+        wasteCard2:
+          "ოფიციალურ ღონისძიებამდე ორგანიზატორები გეგმავენ ნარჩენების სათანადო შეგროვებისა და განთავსების პირობების გარკვევას.",
+
+        wasteCard3Title:
+          "დააფიქსირე შედეგი",
+
+        wasteCard3:
+          "მომავალი ღონისძიების ჩანაწერში უნდა იყოს მითითებული, რა ბედი ეწია შეგროვებულ ნარჩენს და არ უნდა იქმნებოდეს შთაბეჭდილება, რომ სავსე ტომრები უბრალოდ სადმე დატოვეს.",
+
+
+        transEyebrow:
+          "გამჭვირვალობა",
+
+        transTitle:
+          "აჩვენე შესრულებული სამუშაო.<br>შედეგები არ გამოიგონო.",
+
+        transText:
+          "ყოველი ოფიციალური დასუფთავება პატიოსნად უნდა დოკუმენტირდეს. ღონისძიების ჩატარებამდე არ არსებობს არც დასუფთავების სტატისტიკა, არც ფოტოები და არც შედეგი, რომლის მითვისებაც შეიძლება.",
+
+        promise1:
+          "ღონისძიების თარიღი",
+
+        promise2:
+          "დასუფთავების ზოგადი ადგილმდებარეობა",
+
+        promise3:
+          "მონაწილეობის ინფორმაცია",
+
+        promise4:
+          "საჭიროების შემთხვევაში ფოტოები „მანამდე და შემდეგ“",
+
+        promise5:
+          "ნარჩენების მართვის შედეგი",
+
+        promise6:
+          "შესაბამისი ჩანაწერები და დოკუმენტაცია",
+
+
+        recordEyebrow:
+          "მომავალი ღონისძიებების ჩანაწერები",
+
+        recordTitle:
+          "ერთიანი ჩანაწერი<br>ყოველი ოფიციალური დასუფთავებისთვის.",
+
+        recordIntro:
+          "ეს სტრუქტურა მზად არის მომავალი ღონისძიებებისთვის ისე, რომ არ შეიქმნას არარსებული ინფორმაციის შთაბეჭდილება.",
+
+        record1Label:
+          "თარიღი",
+
+        record2Label:
+          "ადგილმდებარეობა",
+
+        record3Label:
+          "მონაწილეები",
+
+        record4Label:
+          "ფოტოები",
+
+        record5Label:
+          "ნარჩენების შედეგი",
+
+        recordPending:
+          "ჯერ არ არის ხელმისაწვდომი",
+
+        recordPending2:
+          "ჯერ არ არის ხელმისაწვდომი",
+
+        recordPending3:
+          "ჯერ არ არის ხელმისაწვდომი",
+
+        recordPending4:
+          "ჯერ არ არის ხელმისაწვდომი",
+
+        recordPending5:
+          "ჯერ არ არის ხელმისაწვდომი",
+
+
+        faqEyebrow:
+          "კითხვები — მკაფიო პასუხებით",
+
+        faqTitle:
+          "რა უნდა იცოდე<br>მონაწილეობამდე.",
+
+        faqIntro:
+          "ეს პასუხები აღწერს პროექტის ამჟამინდელ მდგომარეობას და განახლდება, როდესაც რეალური ღონისძიებების პირობები ჩამოყალიბდება.",
+
+        faq1q:
+          "მონაწილეობა ანაზღაურებადია?",
+
+        faq1a:
+          "არა. Zestafoni Forward-ის დასუფთავებებში მონაწილეობა ნებაყოფლობითი და ანაზღაურების გარეშეა.",
+
+        faq2q:
+          "იღებთ შემოწირულობებს?",
+
+        faq2a:
+          "არა. Zestafoni Forward ამჟამად არ არის საქველმოქმედო ან თანხის შეგროვებაზე დაფუძნებული პროექტი და არ იღებს შემოწირულობებს.",
+
+        faq3q:
+          "როგორ გავიგო, ღონისძიება ოფიციალურია თუ არა?",
+
+        faq3a:
+          "ოფიციალური Zestafoni Forward-ის დასუფთავება გამოცხადდება პროექტის ოფიციალურ ვებგვერდზე ან ოფიციალურ არხებში. სხვა ადამიანების მიერ დამოუკიდებლად ორგანიზებული აქტივობა ავტომატურად არ ითვლება Zestafoni Forward-ის ოფიციალურ ღონისძიებად.",
+
+        faq4q:
+          "რა ვქნა, თუ სახიფათო ნარჩენს ვიპოვი?",
+
+        faq4a:
+          "არ შეეხო. ეს მოიცავს ნემსებს, სამედიცინო ნარჩენს, ქიმიურ ნივთიერებებს, უცნობ სითხეებს ან ნივთიერებებს, იარაღს, ასაფეთქებელ ან საეჭვო ობიექტებს, მკვდარ ცხოველებს და ნებისმიერ სხვა სახიფათო ნივთს. მოშორდი და დაუყოვნებლივ აცნობე კოორდინატორს.",
+
+        faq5q:
+          "Zestafoni Forward მუნიციპალური სამსახური არის?",
+
+        faq5a:
+          "არა. Zestafoni Forward დამოუკიდებელი საზოგადოებრივი ინიციატივაა. ის არ აცხადებს მუნიციპალურ უფლებამოსილებას, სახელმწიფო სტატუსს ან სახელმწიფო მხარდაჭერას.",
+
+        faq6q:
+          "შემიძლია Zestafoni Forward-ის სახელით ღონისძიების ორგანიზება?",
+
+        faq6a:
+          "დამოუკიდებლად ორგანიზებული აქტივობა არ უნდა იყოს წარმოდგენილი Zestafoni Forward-ის ოფიციალურ ღონისძიებად, თუ ის პროექტის ოფიციალური არხებით არ არის ავტორიზებული და გამოცხადებული.",
+
+        faq7q:
+          "მალე იქნება ოფიციალური დასუფთავებები?",
+
+        faq7a:
+          "თარიღი ჯერ გამოცხადებული არ არის. პირველი საჯარო ღონისძიება მხოლოდ მაშინ გამოჩნდება ვებგვერდზე, როდესაც აუცილებელი საოპერაციო, უსაფრთხოებისა და ნარჩენების მართვის საკითხები მომზადებული იქნება.",
+
+        faq8q:
+          "თანამშრომლობს პროექტი მუნიციპალიტეტთან?",
+
+        faq8a:
+          "ამჟამად მუნიციპალიტეტთან თანამშრომლობა არ არის გამოცხადებული. ორგანიზატორები პირველი საჯარო დასუფთავების დაწყებამდე გეგმავენ შესაბამის ადგილობრივ უწყებებთან საუბარს პრაქტიკული საკითხებისა და შესაძლო მომავალი თანამშრომლობის გასარკვევად.",
+
+
+        contactEyebrow:
+          "კონტაქტი",
+
+        contactTitle:
+          "დავეხმაროთ ზესტაფონს პრაქტიკული საქმის გაკეთებაში.",
+
+        contactText:
+          "ოფიციალური საკონტაქტო არხები აქ გამოქვეყნდება მათი ჩამოყალიბების შემდეგ. მანამდე ვებგვერდი არ აცხადებს, რომ შეტყობინებებს იღებს ან ამუშავებს.",
+
+        contactPlace:
+          "ზესტაფონი, საქართველო",
+
+        contactEmail:
+          "ოფიციალური ელფოსტა: მოგვიანებით გამოქვეყნდება",
+
+        contactSocial:
+          "ოფიციალური სოციალური არხები: მოგვიანებით გამოქვეყნდება",
+
+        formTitle:
+          "საკონტაქტო ფორმა",
+
+        formText:
+          "ეს ამჟამად მხოლოდ ვიზუალური ფორმაა. შეტყობინება არ იგზავნება, არ გადაიცემა და არ ინახება, რადგან backend სისტემა ჯერ არ არის დაკავშირებული.",
+
+        formName:
+          "თქვენი სახელი",
+
+        formNamePlaceholder:
+          "თქვენი სახელი",
+
+        formMessage:
+          "თქვენი შეტყობინება",
+
+        formMessagePlaceholder:
+          "რისი გაზიარება გსურთ?",
+
+        formWarning:
+          "რეალური საკონტაქტო სისტემის დაკავშირებამდე არაფერი გაიგზავნება.",
+
+        formButton:
+          "ფორმის შემოწმება",
+
+
+        footerMission:
+          "დამოუკიდებელი საზოგადოებრივი დასუფთავების ინიციატივა · ზესტაფონი, საქართველო. ნებაყოფლობითი მონაწილეობა, პატიოსანი დოკუმენტირება და შემოწირულობების გარეშე.",
+
+        footerExplore:
+          "დათვალიერება",
+
+        footerStatus:
+          "პროექტის სტატუსი",
+
+        footerNoFund:
+          "შემოწირულობები არ მიიღება",
+
+        footerLegal:
+          "დამოუკიდებელი საზოგადოებრივი დასუფთავების ინიციატივა · ზესტაფონი, საქართველო · შემოწირულობები არ მიიღება · არ არის მუნიციპალური სამსახური"
+
+      }
+    };
+
+
+    /* =====================================
+       DOM HELPERS
+    ===================================== */
+
+    const $ = (selector, root = document) =>
+      root.querySelector(selector);
+
+    const $$ = (selector, root = document) =>
+      Array.from(root.querySelectorAll(selector));
+
+
+    /* =====================================
+       LANGUAGE
+    ===================================== */
+
+    let savedLanguage = null;
+
+    try {
+      savedLanguage = localStorage.getItem("zf-language");
+    } catch (error) {
+      savedLanguage = null;
+    }
+
+    let lang =
+      savedLanguage === "ka" || savedLanguage === "en"
+        ? savedLanguage
+        : (
+            navigator.language ||
+            ""
+          ).toLowerCase().startsWith("ka")
+            ? "ka"
+            : "en";
+
+
+    function translate(key) {
+      return (
+        translations[lang]?.[key] ??
+        translations.en[key] ??
+        key
+      );
+    }
+
+
+    function applyLanguage() {
+
+      document.documentElement.lang = lang;
+
+      document.body.classList.toggle(
+        "ka",
+        lang === "ka"
+      );
+
+
+      $$("[data-i18n]").forEach((element) => {
+
+        element.innerHTML = translate(
+          element.dataset.i18n
+        );
+
+      });
+
+
+      $$("[data-i18n-placeholder]").forEach((element) => {
+
+        element.placeholder = translate(
+          element.dataset.i18nPlaceholder
+        );
+
+      });
+
+
+      $$("[data-lang]").forEach((button) => {
+
+        const active =
+          button.dataset.lang === lang;
+
+        button.classList.toggle(
+          "active",
+          active
+        );
+
+        button.setAttribute(
+          "aria-pressed",
+          String(active)
+        );
+
+      });
+
+
+      document.title =
+        lang === "ka"
+          ? "Zestafoni Forward — უფრო სუფთა ზესტაფონი. ერთად."
+          : "Zestafoni Forward — Cleaner Zestafoni. Built together.";
+
+    }
+
+
+    $$("[data-lang]").forEach((button) => {
+
+      button.addEventListener("click", () => {
+
+        lang = button.dataset.lang;
+
+        try {
+          localStorage.setItem(
+            "zf-language",
+            lang
+          );
+        } catch (error) {
+          /* localStorage may be unavailable */
+        }
+
+        applyLanguage();
+
+      });
+
+    });
+
+
+    /* =====================================
+       MOBILE NAVIGATION
+    ===================================== */
+
+    const menuToggle = $("#menuToggle");
+    const navlinks = $("#navlinks");
+
+
+    function closeMobileMenu() {
+
+      navlinks.classList.remove("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        lang === "ka"
+          ? "ნავიგაციის დახურვა"
+          : "Close navigation"
+      );
+
+    }
+
+
+    menuToggle.addEventListener("click", () => {
+
+      const isOpen =
+        navlinks.classList.toggle("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? (
+              lang === "ka"
+                ? "ნავიგაციის დახურვა"
+                : "Close navigation"
+            )
+          : (
+              lang === "ka"
+                ? "ნავიგაციის გახსნა"
+                : "Open navigation"
+            )
+      );
+
+    });
+
+
+    /* =====================================
+       NAVIGATION
+    ===================================== */
+
+    $$("[data-nav]").forEach((link) => {
+
+      link.addEventListener("click", () => {
+
+        closeMobileMenu();
+
+      });
+
+    });
+
+
+    $$("[data-scroll]").forEach((link) => {
+
+      link.addEventListener("click", (event) => {
+
+        const targetId =
+          link.dataset.scroll;
+
+        const target =
+          document.getElementById(targetId);
+
+        if (!target) {
+          return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+        history.replaceState(
+          null,
+          "",
+          "#" + targetId
+        );
+
+      });
+
+    });
+
+
+    /* =====================================
+       ACTIVE NAV SECTION
+    ===================================== */
+
+    const sections =
+      $$("main section[id]");
+
+    const navLinks =
+      $$("[data-nav]");
+
+
+    const sectionObserver =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const id =
+              entry.target.id;
+
+            navLinks.forEach((link) => {
+
+              link.classList.toggle(
+                "active",
+                link.dataset.nav === id ||
+                (
+                  id === "how-it-works" &&
+                  link.dataset.nav === "how"
+                )
+              );
+
+            });
+
+          });
+
+        },
+        {
+          rootMargin: "-25% 0px -65% 0px",
+          threshold: 0
+        }
+      );
+
+
+    sections.forEach((section) => {
+
+      sectionObserver.observe(section);
+
+    });
+
+
+    /* =====================================
+       REVEAL ANIMATION
+    ===================================== */
+
+    const revealElements =
+      $$(".reveal");
+
+
+    const revealObserver =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    revealElements.forEach((element) => {
+
+      revealObserver.observe(element);
+
+    });
+
+
+    /* =====================================
+       PLACEHOLDER FORM
+    ===================================== */
+
+    const form =
+      $("#placeholderForm");
+
+    const toast =
+      $("#toast");
+
+
+    let toastTimer = null;
+
+
+    function showToast(message) {
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer =
+        setTimeout(() => {
+
+          toast.classList.remove(
+            "show"
+          );
+
+        }, 3600);
+
+    }
+
+
+    form.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      showToast(
+        lang === "ka"
+          ? "ეს მხოლოდ ვიზუალური ფორმაა — შეტყობინება არ გაგზავნილა."
+          : "This is only a visual form — no message was sent."
+      );
+
+    });
+
+
+    /* =====================================
+       YEAR
+    ===================================== */
+
+    $("#year").textContent =
+      new Date().getFullYear();
+
+
+    /* =====================================
+       INITIAL LANGUAGE
+    ===================================== */
+
+    applyLanguage();
+
+
+    /* =====================================
+       HASH SCROLL
+    ===================================== */
+
+    function scrollToHash() {
+
+      const hash =
+        window.location.hash;
+
+      if (!hash) {
+        return;
+      }
+
+      const target =
+        document.querySelector(hash);
+
+      if (!target) {
+        return;
+      }
+
+      setTimeout(() => {
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }, 50);
+
+    }
+
+
+    window.addEventListener(
+      "load",
+      scrollToHash
+    );
+
+
+    /* =====================================
+       ESCAPE KEY
+    ===================================== */
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          navlinks.classList.contains("open")
+        ) {
+
+          closeMobileMenu();
+
+          menuToggle.focus();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================
+       CLOSE MOBILE MENU AFTER RESIZE
+    ===================================== */
+
+    window.addEventListener(
+      "resize",
+      () => {
+
+        if (window.innerWidth > 850) {
+          closeMobileMenu();
+        }
+
+      }
+    );
+
+  </script>
+
 </body>
 </html>
+```
+
